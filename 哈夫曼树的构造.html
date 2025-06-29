@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<!--
+	NOTES:
+	1. All tokens are represented by '$' sign in the template.
+	2. You can write your code only wherever mentioned.
+	3. All occurrences of existing tokens will be replaced by their appropriate values.
+	4. Blank lines will be removed automatically.
+	5. Remove unnecessary comments before creating your template.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<title>哈夫曼树的构造</title>
+<!-- write your code here -->
+<style>
+  #animation_container {
+	position:absolute;
+	margin:auto;
+	left:0;right:0;
+	top:0;bottom:0;
+  }
+</style>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script>
+(function (cjs, an) {
+var p; // shortcut to reference prototypes
+var lib={};var ss={};var img={};
+lib.ssMetadata = [
+		{name:"哈夫曼树的构造_atlas_1", frames: [[0,0,1275,892],[0,894,1275,884]]},
+		{name:"哈夫曼树的构造_atlas_2", frames: [[0,0,1275,870],[0,872,1275,642]]},
+		{name:"哈夫曼树的构造_atlas_3", frames: [[0,0,1275,640],[0,642,1275,640],[0,1284,1275,640]]},
+		{name:"哈夫曼树的构造_atlas_4", frames: [[0,0,1275,640],[0,642,1275,640],[0,1284,1275,386]]},
+		{name:"哈夫曼树的构造_atlas_5", frames: [[0,0,1275,386],[0,388,1275,386],[0,776,1275,386],[0,1164,1275,386],[0,1552,1275,381]]},
+		{name:"哈夫曼树的构造_atlas_6", frames: [[0,437,1938,74],[0,513,1938,74],[0,589,1938,74],[0,665,1938,74],[0,741,1938,74],[0,817,1938,74],[0,893,1938,74],[0,969,1938,74],[0,1045,1938,74],[0,1121,1938,74],[0,1197,1938,74],[0,1273,1938,74],[0,1349,1938,74],[0,1425,1938,74],[0,1501,1938,74],[0,1577,1938,74],[0,1653,1938,74],[0,1729,1938,74],[0,1805,1938,74],[0,1881,1938,74],[0,1957,1938,74],[0,225,1275,210],[0,0,1282,223]]},
+		{name:"哈夫曼树的构造_atlas_7", frames: [[0,1064,956,87],[958,1064,956,87],[0,1153,956,87],[958,1153,956,87],[0,1242,956,87],[958,1242,956,87],[0,1331,956,87],[958,1331,956,87],[0,1420,956,87],[958,1420,956,87],[0,1509,956,87],[958,1509,956,87],[0,1598,956,87],[958,1598,956,87],[0,1687,956,87],[958,1687,956,87],[0,1776,956,87],[0,1865,956,87],[0,1954,956,87],[958,1776,956,87],[958,1865,956,87],[958,1954,956,87],[0,0,1938,74],[0,76,1938,74],[0,152,1938,74],[0,228,1938,74],[0,304,1938,74],[0,380,1938,74],[0,456,1938,74],[0,532,1938,74],[0,608,1938,74],[0,684,1938,74],[0,760,1938,74],[0,836,1938,74],[0,912,1938,74],[0,988,1938,74]]},
+		{name:"哈夫曼树的构造_atlas_8", frames: [[420,718,68,48],[1832,736,68,48],[840,801,68,48],[1428,925,68,48],[0,1074,68,48],[70,1074,68,48],[140,1074,68,48],[210,1074,68,48],[1163,623,120,70],[280,1074,68,48],[350,1074,68,48],[1906,640,120,70],[1990,712,45,87],[1748,534,156,200],[0,623,132,93],[262,623,114,93],[1916,0,126,126],[378,623,114,93],[1916,128,126,126],[134,623,126,93],[1916,256,126,126],[1986,979,52,93],[1754,1003,52,93],[1916,384,126,126],[1596,1013,52,93],[672,1068,52,93],[1916,512,126,126],[958,534,444,87],[494,623,119,87],[1285,623,82,87],[978,676,82,87],[1062,676,82,87],[1146,695,82,87],[494,712,82,87],[615,623,119,87],[578,712,82,87],[662,712,82,87],[746,712,82,87],[830,712,82,87],[1230,712,82,87],[1314,712,82,87],[1906,712,82,87],[0,718,82,87],[84,718,82,87],[168,718,82,87],[736,623,119,87],[252,718,82,87],[336,718,82,87],[1748,736,82,87],[1577,746,82,87],[1661,746,82,87],[1398,747,82,87],[1482,747,82,87],[914,765,82,87],[998,765,82,87],[1082,784,82,87],[857,623,119,87],[420,801,82,87],[504,801,82,87],[588,801,82,87],[672,801,82,87],[756,801,82,87],[1166,801,82,87],[1250,801,82,87],[1832,801,82,87],[1916,801,82,87],[0,807,82,87],[84,807,82,87],[168,807,82,87],[252,807,82,87],[336,807,82,87],[1745,825,82,87],[1566,835,82,87],[1650,835,82,87],[1334,836,82,87],[1418,836,82,87],[840,854,82,87],[924,854,82,87],[1008,873,82,87],[420,890,82,87],[504,890,82,87],[588,890,82,87],[672,890,82,87],[756,890,82,87],[1092,890,82,87],[1176,890,82,87],[1829,890,82,87],[1913,890,82,87],[0,896,82,87],[84,896,82,87],[168,896,82,87],[252,896,82,87],[336,896,82,87],[1734,914,82,87],[1502,924,82,87],[1586,924,82,87],[1260,925,82,87],[1344,925,82,87],[840,943,82,87],[924,943,82,87],[1008,962,82,87],[420,979,82,87],[504,979,82,87],[588,979,82,87],[672,979,82,87],[756,979,82,87],[1092,979,82,87],[1176,979,82,87],[1818,979,82,87],[1902,979,82,87],[0,985,82,87],[84,985,82,87],[168,985,82,87],[252,985,82,87],[336,985,82,87],[1670,1003,82,87],[1428,1013,82,87],[1512,1013,82,87],[1260,1014,82,87],[2000,801,45,87],[0,0,956,87],[1344,1014,82,87],[840,1032,82,87],[1997,890,45,87],[958,0,956,87],[924,1032,82,87],[726,1068,45,87],[0,89,956,87],[1008,1051,82,87],[420,1068,82,87],[773,1068,45,87],[958,89,956,87],[504,1068,82,87],[1092,1068,45,87],[0,178,956,87],[1139,1068,45,87],[958,178,956,87],[588,1068,82,87],[1186,1068,45,87],[0,267,956,87],[1808,1068,45,87],[958,267,956,87],[0,356,956,87],[1855,1068,45,87],[958,356,956,87],[1577,534,169,210],[0,445,956,87],[1902,1068,45,87],[958,445,956,87],[1404,534,171,211],[0,534,956,87],[978,623,183,51]]}
+];
+(lib.AnMovieClip = function(){
+	this.actionFrames = [];
+	this.ignorePause = false;
+	this.gotoAndPlay = function(positionOrLabel){
+		cjs.MovieClip.prototype.gotoAndPlay.call(this,positionOrLabel);
+	}
+	this.play = function(){
+		cjs.MovieClip.prototype.play.call(this);
+	}
+	this.gotoAndStop = function(positionOrLabel){
+		cjs.MovieClip.prototype.gotoAndStop.call(this,positionOrLabel);
+	}
+	this.stop = function(){
+		cjs.MovieClip.prototype.stop.call(this);
+	}
+}).prototype = p = new cjs.MovieClip();
+// symbols:
+(lib.CachedBmp_14324 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14322 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14320 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14318 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(3);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14316 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(4);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14314 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(5);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14312 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(6);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14310 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(7);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14323 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(8);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14308 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(9);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14306 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(10);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14307 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(11);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14304 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(12);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14303 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(13);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14302 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(14);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14300 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(15);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14299 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(16);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14298 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(17);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14297 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(18);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14296 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(19);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14295 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(20);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14294 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(21);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14292 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(22);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14291 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(23);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14290 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(24);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14288 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(25);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14301 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(26);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14286 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(27);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14285 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(28);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14284 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(29);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14283 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(30);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14282 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(31);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14281 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(32);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14280 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(33);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14279 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14278 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14276 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(34);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14275 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(35);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14274 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(36);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14273 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(37);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14272 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(38);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14271 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(39);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14270 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14269 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14277 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_2"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14267 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(40);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14266 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(41);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14265 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(42);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14264 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(43);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14263 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(44);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14262 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14261 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14259 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(45);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14258 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(46);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14257 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(47);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14256 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(48);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14255 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(49);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14254 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(50);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14253 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(3);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14252 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(3);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14251 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_1"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14250 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(51);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14249 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(52);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14248 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(53);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14247 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(54);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14246 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(55);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14245 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(4);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14244 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(4);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14242 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(56);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14241 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(57);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14240 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(58);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14239 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(59);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14238 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(60);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14237 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(61);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14236 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(5);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14235 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(5);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14234 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_1"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14233 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(62);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14232 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(63);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14231 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(64);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14230 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(65);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14229 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(66);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14228 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(6);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14227 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(6);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14260 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_3"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14225 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(67);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14224 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(68);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14223 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(69);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14222 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(70);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14221 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(7);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14220 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(7);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14218 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(71);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14217 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(72);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14216 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(73);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14215 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(74);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14214 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(75);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14213 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(8);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14212 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(8);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14211 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_3"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14210 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(76);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14209 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(77);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14208 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(78);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14207 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(79);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14206 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(9);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14205 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(9);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14203 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(80);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14202 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(81);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14201 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(82);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14200 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(83);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14199 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(84);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14198 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(10);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14197 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(10);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14196 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_3"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14195 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(85);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14194 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(86);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14193 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(87);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14192 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(88);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14191 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(11);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14190 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(11);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14219 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_4"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14188 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(89);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14187 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(90);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14186 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(91);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14185 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(12);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14184 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(12);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14182 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(92);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14181 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(93);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14180 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(94);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14179 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(95);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14178 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(13);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14177 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(13);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14176 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_4"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14175 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(96);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14174 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(97);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14173 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(98);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14172 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(14);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14171 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(14);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14169 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(99);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14168 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(100);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14167 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(101);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14166 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(102);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14165 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(15);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14164 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(15);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14163 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_2"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14162 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(103);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14161 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(104);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14160 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(105);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14159 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(16);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14158 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(16);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14183 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_4"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14156 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(106);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14155 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(107);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14154 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(17);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14153 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(17);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14151 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(108);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14150 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(109);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14149 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(110);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14148 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(18);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14147 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(18);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14146 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_5"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14145 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(111);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14144 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(112);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14143 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(19);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14142 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(19);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14140 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(113);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14139 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(114);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14138 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(115);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14137 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(20);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14136 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(20);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14135 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_5"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14134 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(116);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14133 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(117);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14132 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(21);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14131 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(22);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14152 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_5"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14129 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(118);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14128 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(119);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14127 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(120);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14126 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(23);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14124 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(121);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14123 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(122);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14122 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(123);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14121 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(124);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14120 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(24);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14119 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_5"]);
+	this.gotoAndStop(3);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14118 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(125);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14117 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(126);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14116 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(127);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14115 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(25);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14113 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(128);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14112 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(129);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14111 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(130);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14110 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(131);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14109 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(26);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14108 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_5"]);
+	this.gotoAndStop(4);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14107 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(132);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14106 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(133);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14105 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(134);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14104 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(27);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14125 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(21);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14102 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(135);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14101 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(136);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14100 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(28);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14098 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(137);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14097 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(138);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14096 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(139);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14095 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(29);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14094 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_6"]);
+	this.gotoAndStop(22);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14093 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(140);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14092 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(141);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14091 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(30);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14089 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(142);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14088 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(31);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14087 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(143);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14086 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(144);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14085 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(32);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14099 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(145);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14083 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(146);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14082 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(33);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14081 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(147);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14080 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(148);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14079 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(34);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14078 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(149);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14077 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(150);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_14076 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_7"]);
+	this.gotoAndStop(35);
+}).prototype = p = new cjs.Sprite();
+(lib.校徽 = function() {
+	this.initialize(ss["哈夫曼树的构造_atlas_8"]);
+	this.gotoAndStop(151);
+}).prototype = p = new cjs.Sprite();
+// helper functions:
+function mc_symbol_clone() {
+	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop, this.reversed));
+	clone.gotoAndStop(this.currentFrame);
+	clone.paused = this.paused;
+	clone.framerate = this.framerate;
+	return clone;
+}
+function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
+	var prototype = cjs.extend(symbol, cjs.MovieClip);
+	prototype.clone = mc_symbol_clone;
+	prototype.nominalBounds = nominalBounds;
+	prototype.frameBounds = frameBounds;
+	return prototype;
+	}
+(lib.stop = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层 1
+	this.instance = new lib.CachedBmp_14322();
+	this.instance.setTransform(9.9,13.35,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14323();
+	this.instance_1.setTransform(-2,8,0.5,0.5);
+	this.instance_2 = new lib.CachedBmp_14324();
+	this.instance_2.setTransform(9.9,13.35,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_1},{t:this.instance_2}]},2).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,8,60,35);
+(lib.replay = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层 1
+	this.instance = new lib.CachedBmp_14318();
+	this.instance.setTransform(8.9,13.8,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14323();
+	this.instance_1.setTransform(-2,8,0.5,0.5);
+	this.instance_2 = new lib.CachedBmp_14320();
+	this.instance_2.setTransform(8.9,13.8,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_1},{t:this.instance_2}]},2).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,8,60,35);
+(lib.pre = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层 1
+	this.instance = new lib.CachedBmp_14314();
+	this.instance.setTransform(8.9,13.8,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14323();
+	this.instance_1.setTransform(-2,8,0.5,0.5);
+	this.instance_2 = new lib.CachedBmp_14316();
+	this.instance_2.setTransform(8.9,13.8,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_1},{t:this.instance_2}]},2).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,8,60,35);
+(lib.play = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层 1
+	this.instance = new lib.CachedBmp_14310();
+	this.instance.setTransform(10,13.8,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14323();
+	this.instance_1.setTransform(-2,8,0.5,0.5);
+	this.instance_2 = new lib.CachedBmp_14312();
+	this.instance_2.setTransform(10,13.8,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_1},{t:this.instance_2}]},2).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,8,60,35);
+(lib.next = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层 1
+	this.instance = new lib.CachedBmp_14306();
+	this.instance.setTransform(10,13.8,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14307();
+	this.instance_1.setTransform(-2,8,0.5,0.5);
+	this.instance_2 = new lib.CachedBmp_14308();
+	this.instance_2.setTransform(10,13.8,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_1},{t:this.instance_2}]},2).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,8,60,35);
+(lib.元件1 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_14304();
+	this.instance.setTransform(27.15,6.8,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14303();
+	this.instance_1.setTransform(-1,-0.5,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib.元件1, new cjs.Rectangle(-1,-0.5,78,100), null);
+(lib._29 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_14302();
+	this.instance.setTransform(7.6,6.55,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14301();
+	this.instance_1.setTransform(-0.5,-0.5,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib._29, new cjs.Rectangle(-0.5,-0.5,74.1,63), null);
+(lib._23 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_14300();
+	this.instance.setTransform(9.65,6.55,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14299();
+	this.instance_1.setTransform(-0.5,-0.5,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib._23, new cjs.Rectangle(-0.5,-0.5,67.2,63), null);
+(lib._14 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_14298();
+	this.instance.setTransform(8,6.55,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14297();
+	this.instance_1.setTransform(-0.5,-0.5,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib._14, new cjs.Rectangle(-0.5,-0.5,65.5,63), null);
+(lib._11 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_14296();
+	this.instance.setTransform(7.4,6.55,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14295();
+	this.instance_1.setTransform(-0.5,-0.5,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib._11, new cjs.Rectangle(-0.5,-0.5,70.9,63), null);
+(lib._8 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_14294();
+	this.instance.setTransform(17.9,6.55,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14301();
+	this.instance_1.setTransform(-0.5,-0.5,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib._8, new cjs.Rectangle(-0.5,-0.5,63,63), null);
+(lib._7 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_14292();
+	this.instance.setTransform(17.9,6.55,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14291();
+	this.instance_1.setTransform(-0.5,-0.5,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib._7, new cjs.Rectangle(-0.5,-0.5,63,63), null);
+(lib._5 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_14290();
+	this.instance.setTransform(17.9,6.55,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14301();
+	this.instance_1.setTransform(-0.5,-0.5,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib._5, new cjs.Rectangle(-0.5,-0.5,63,63), null);
+(lib._3 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_14288();
+	this.instance.setTransform(17.9,6.55,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_14301();
+	this.instance_1.setTransform(-0.5,-0.5,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = getMCSymbolPrototype(lib._3, new cjs.Rectangle(-0.5,-0.5,63,63), null);
+// stage content:
+(lib.哈夫曼树的构造 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	this.actionFrames = [0,83,169,215,259,305,354,408];
+	// timeline functions:
+	this.frame_0 = function() {
+		this.stop(); // 停止当前时间轴播放
+		this.i = 1; // 声明并初始化变量 i
+		this.btnnext.alpha = 1; // 设置 btnback 按钮的透明度为 1（完全不透明）
+		this.btnplay.alpha = 1; // 设置 btnplay 按钮的透明度为 1（完全不透明）
+		this.btnstop.alpha = 0.5; // 设置 btnstop 按钮的透明度为 0.5（半透明）
+		// 为 btnplay 按钮添加点击事件监听器（播放功能）
+		this.btnplay.addEventListener("click", playmove.bind(this));
+		function playmove(event) {
+		    if (this.currentFrame !== 408) { // 检查当前帧是否不是第 930 帧（AS3 中的 930 对应 CreateJS 中的 929）
+		        i = 2; // 更新变量 i 的值
+		        this.btnplay.alpha = 0.5; // 调整 btnplay 按钮的透明度
+		        this.btnstop.alpha = 1; // 调整 btnstop 按钮的透明度
+		        this.play(); // 播放时间轴
+		    }
+		}
+		// 为 btnback 按钮添加点击事件监听器（步进功能）
+		this.btnnext.addEventListener("click", nextmove.bind(this));
+		function nextmove(event) {
+		    if (this.currentFrame !== 408) { // 检查当前帧是否不是第 930 帧（AS3 中的 930 对应 CreateJS 中的 929）
+		        i = 3; // 更新变量 i 的值
+		        this.btnplay.alpha = 1; // 调整 btnplay 按钮的透明度
+		        this.btnstop.alpha = 0.5; // 调整 btnstop 按钮的透明度
+		        this.play(); // 播放时间轴
+		    }
+		}
+		// 为 replay 按钮添加点击事件监听器
+		this.replay.addEventListener("click", replaymove.bind(this));
+		function replaymove(event) {
+		    this.btnnext.alpha = 1; // 调整 btnback 按钮的透明度
+		    this.btnplay.alpha = 1; // 调整 btnplay 按钮的透明度
+		    this.btnstop.alpha = 0.5; // 调整 btnstop 按钮的透明度
+		    this.gotoAndStop(0); // 跳转到第 1 帧（索引 0）并停止
+		}
+		// 为 btnstop 按钮添加点击事件监听器
+		this.btnstop.addEventListener("click", stopmove.bind(this));
+		function stopmove(event) {
+		    if (this.currentFrame !== 408) { // 检查当前帧是否不是第 930 帧（AS3 中的 930 对应 CreateJS 中的 929）
+		        this.btnplay.alpha = 1; // 调整 btnplay 按钮的透明度
+		        this.btnstop.alpha = 0.5; // 调整 btnstop 按钮的透明度
+		        this.stop(); // 停止时间轴播放
+		    }
+		}
+	}
+	this.frame_83 = function() {
+		if (i == 3) {
+		        this.stop(); // 停止当前动画播放
+		        // stage.update(); // 如果未启用Ticker自动更新则需添加
+		}
+		if (this.btnback) {
+		    this.btnback.addEventListener("click", () => {
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndStop(0); // CreateJS 的帧索引从 0 开始，因此使用 1 表示第 2 帧
+		        }
+		    });
+		}
+	}
+	this.frame_169 = function() {
+		if (i == 3) {
+		        this.stop(); // 停止当前动画播放
+		        // stage.update(); // 如果未启用Ticker自动更新则需添加
+		}
+		if (this.btnback) {
+		    this.btnback.addEventListener("click", () => {
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndStop(83); // CreateJS 的帧索引从 0 开始，因此使用 1 表示第 2 帧
+		        }
+		    });
+		}
+	}
+	this.frame_215 = function() {
+		if (i == 3) {
+		        this.stop(); // 停止当前动画播放
+		        // stage.update(); // 如果未启用Ticker自动更新则需添加
+		}
+		if (this.btnback) {
+		    this.btnback.addEventListener("click", () => {
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndStop(169); // CreateJS 的帧索引从 0 开始，因此使用 1 表示第 2 帧
+		        }
+		    });
+		}
+	}
+	this.frame_259 = function() {
+		if (i == 3) {
+		        this.stop(); // 停止当前动画播放
+		        // stage.update(); // 如果未启用Ticker自动更新则需添加
+		}
+		if (this.btnback) {
+		    this.btnback.addEventListener("click", () => {
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndStop(215); // CreateJS 的帧索引从 0 开始，因此使用 1 表示第 2 帧
+		        }
+		    });
+		}
+	}
+	this.frame_305 = function() {
+		if (i == 3) {
+		        this.stop(); // 停止当前动画播放
+		        // stage.update(); // 如果未启用Ticker自动更新则需添加
+		}
+		if (this.btnback) {
+		    this.btnback.addEventListener("click", () => {
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndStop(259); // CreateJS 的帧索引从 0 开始，因此使用 1 表示第 2 帧
+		        }
+		    });
+		}
+	}
+	this.frame_354 = function() {
+		if (i == 3) {
+		        this.stop(); // 停止当前动画播放
+		        // stage.update(); // 如果未启用Ticker自动更新则需添加
+		}
+		if (this.btnback) {
+		    this.btnback.addEventListener("click", () => {
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndStop(305); // CreateJS 的帧索引从 0 开始，因此使用 1 表示第 2 帧
+		        }
+		    });
+		}
+	}
+	this.frame_408 = function() {
+		this.stop();
+		if (this.btnback) {
+		    this.btnback.addEventListener("click", () => {
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndStop(354); // CreateJS 的帧索引从 0 开始，因此使用 1 表示第 2 帧
+		        }
+		    });
+		}
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(83).call(this.frame_83).wait(86).call(this.frame_169).wait(46).call(this.frame_215).wait(44).call(this.frame_259).wait(46).call(this.frame_305).wait(49).call(this.frame_354).wait(54).call(this.frame_408).wait(1));
+	// 二十九号
+	this.instance = new lib._29();
+	this.instance.setTransform(176.8,146.4,1,1,0,0,0,36.5,30.9);
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(306).to({x:729.2,y:451.2},42).wait(61));
+	// 二十三号
+	this.instance_1 = new lib._23();
+	this.instance_1.setTransform(551.05,146.4,1,1,0,0,0,33,30.9);
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(260).to({x:538.15,y:448.9},39).wait(110));
+	// 十四号
+	this.instance_2 = new lib._14();
+	this.instance_2.setTransform(455.55,146.4,1,1,0,0,0,32.1,30.9);
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(216).to({x:815.25,y:544.8},38).wait(155));
+	// 十一号
+	this.instance_3 = new lib._11();
+	this.instance_3.setTransform(729.7,146.4,1,1,0,0,0,34.9,30.9);
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(170).to({x:469.7,y:537.2},40).wait(199));
+	// 八号
+	this.instance_4 = new lib._8();
+	this.instance_4.setTransform(358.85,146.4,1,1,0,0,0,30.9,30.9);
+	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(123).to({x:966.1,y:638},40).wait(246));
+	// 七号
+	this.instance_5 = new lib._7();
+	this.instance_5.setTransform(266.3,146.4,1,1,0,0,0,30.9,30.9);
+	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(83).to({x:873.6,y:638},40).wait(286));
+	// 五号
+	this.instance_6 = new lib._5();
+	this.instance_6.setTransform(76.8,146.4,1,1,0,0,0,30.9,30.9);
+	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(39).to({x:403.9,y:638},40).wait(330));
+	// 三号
+	this.instance_7 = new lib._3();
+	this.instance_7.setTransform(637.5,146.4,1,1,0,0,0,30.9,30.9);
+	this.timeline.addTween(cjs.Tween.get(this.instance_7).to({x:320.2,y:638},39).wait(370));
+	// 背景层
+	this.instance_8 = new lib.校徽();
+	this.instance_8.setTransform(814,685);
+	this.instance_9 = new lib.CachedBmp_14077();
+	this.instance_9.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_10 = new lib.CachedBmp_14076();
+	this.instance_10.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_11 = new lib.CachedBmp_14081();
+	this.instance_11.setTransform(351.1,512.35,0.5,0.5);
+	this.instance_12 = new lib.CachedBmp_14080();
+	this.instance_12.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_13 = new lib.CachedBmp_14079();
+	this.instance_13.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_14 = new lib.CachedBmp_14078();
+	this.instance_14.setTransform(319.2,505.05,0.5,0.5);
+	this.instance_15 = new lib.CachedBmp_14083();
+	this.instance_15.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_16 = new lib.CachedBmp_14082();
+	this.instance_16.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_17 = new lib.CachedBmp_14087();
+	this.instance_17.setTransform(348.95,513.1,0.5,0.5);
+	this.instance_18 = new lib.CachedBmp_14086();
+	this.instance_18.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_19 = new lib.CachedBmp_14085();
+	this.instance_19.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_20 = new lib.CachedBmp_14099();
+	this.instance_20.setTransform(317.55,505.8,0.5,0.5);
+	this.instance_21 = new lib.CachedBmp_14089();
+	this.instance_21.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_22 = new lib.CachedBmp_14088();
+	this.instance_22.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_23 = new lib.CachedBmp_14093();
+	this.instance_23.setTransform(348.95,513.1,0.5,0.5);
+	this.instance_24 = new lib.CachedBmp_14092();
+	this.instance_24.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_25 = new lib.CachedBmp_14091();
+	this.instance_25.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_26 = new lib.CachedBmp_14098();
+	this.instance_26.setTransform(895,519.9,0.5,0.5);
+	this.instance_27 = new lib.CachedBmp_14097();
+	this.instance_27.setTransform(348.95,513.1,0.5,0.5);
+	this.instance_28 = new lib.CachedBmp_14096();
+	this.instance_28.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_29 = new lib.CachedBmp_14095();
+	this.instance_29.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_30 = new lib.CachedBmp_14094();
+	this.instance_30.setTransform(317.55,505.8,0.5,0.5);
+	this.instance_31 = new lib.CachedBmp_14102();
+	this.instance_31.setTransform(348.95,513.1,0.5,0.5);
+	this.instance_32 = new lib.CachedBmp_14101();
+	this.instance_32.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_33 = new lib.CachedBmp_14100();
+	this.instance_33.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_34 = new lib.CachedBmp_14107();
+	this.instance_34.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_35 = new lib.CachedBmp_14106();
+	this.instance_35.setTransform(348.95,513.1,0.5,0.5);
+	this.instance_36 = new lib.CachedBmp_14105();
+	this.instance_36.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_37 = new lib.CachedBmp_14104();
+	this.instance_37.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_38 = new lib.CachedBmp_14125();
+	this.instance_38.setTransform(317.55,505.8,0.5,0.5);
+	this.instance_39 = new lib.CachedBmp_14113();
+	this.instance_39.setTransform(384.65,427.6,0.5,0.5);
+	this.instance_40 = new lib.CachedBmp_14112();
+	this.instance_40.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_41 = new lib.CachedBmp_14111();
+	this.instance_41.setTransform(348.95,513.1,0.5,0.5);
+	this.instance_42 = new lib.CachedBmp_14110();
+	this.instance_42.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_43 = new lib.CachedBmp_14109();
+	this.instance_43.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_44 = new lib.CachedBmp_14108();
+	this.instance_44.setTransform(317.55,420.3,0.5,0.5);
+	this.instance_45 = new lib.CachedBmp_14118();
+	this.instance_45.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_46 = new lib.CachedBmp_14117();
+	this.instance_46.setTransform(348.95,513.1,0.5,0.5);
+	this.instance_47 = new lib.CachedBmp_14116();
+	this.instance_47.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_48 = new lib.CachedBmp_14115();
+	this.instance_48.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_49 = new lib.CachedBmp_14124();
+	this.instance_49.setTransform(382.35,425.2,0.5,0.5);
+	this.instance_50 = new lib.CachedBmp_14123();
+	this.instance_50.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_51 = new lib.CachedBmp_14122();
+	this.instance_51.setTransform(348.95,513.1,0.5,0.5);
+	this.instance_52 = new lib.CachedBmp_14121();
+	this.instance_52.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_53 = new lib.CachedBmp_14120();
+	this.instance_53.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_54 = new lib.CachedBmp_14119();
+	this.instance_54.setTransform(317.55,417.9,0.5,0.5);
+	this.instance_55 = new lib.CachedBmp_14129();
+	this.instance_55.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_56 = new lib.CachedBmp_14128();
+	this.instance_56.setTransform(348.95,513.1,0.5,0.5);
+	this.instance_57 = new lib.CachedBmp_14127();
+	this.instance_57.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_58 = new lib.CachedBmp_14126();
+	this.instance_58.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_59 = new lib.CachedBmp_14134();
+	this.instance_59.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_60 = new lib.元件1();
+	this.instance_60.setTransform(359.8,555.9,1,1,0,0,0,38,49.6);
+	this.instance_61 = new lib.CachedBmp_14133();
+	this.instance_61.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_62 = new lib.CachedBmp_14132();
+	this.instance_62.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_63 = new lib.CachedBmp_14131();
+	this.instance_63.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_64 = new lib.CachedBmp_14152();
+	this.instance_64.setTransform(317.55,417.5,0.5,0.5);
+	this.instance_65 = new lib.CachedBmp_14140();
+	this.instance_65.setTransform(845.8,427.1,0.5,0.5);
+	this.instance_66 = new lib.CachedBmp_14139();
+	this.instance_66.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_67 = new lib.CachedBmp_14138();
+	this.instance_67.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_68 = new lib.CachedBmp_14137();
+	this.instance_68.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_69 = new lib.CachedBmp_14136();
+	this.instance_69.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_70 = new lib.CachedBmp_14135();
+	this.instance_70.setTransform(317.55,417.5,0.5,0.5);
+	this.instance_71 = new lib.CachedBmp_14145();
+	this.instance_71.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_72 = new lib.CachedBmp_14144();
+	this.instance_72.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_73 = new lib.CachedBmp_14143();
+	this.instance_73.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_74 = new lib.CachedBmp_14142();
+	this.instance_74.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_75 = new lib.CachedBmp_14151();
+	this.instance_75.setTransform(843.7,427.1,0.5,0.5);
+	this.instance_76 = new lib.CachedBmp_14150();
+	this.instance_76.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_77 = new lib.CachedBmp_14149();
+	this.instance_77.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_78 = new lib.CachedBmp_14148();
+	this.instance_78.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_79 = new lib.CachedBmp_14147();
+	this.instance_79.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_80 = new lib.CachedBmp_14146();
+	this.instance_80.setTransform(317.55,417.5,0.5,0.5);
+	this.instance_81 = new lib.CachedBmp_14156();
+	this.instance_81.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_82 = new lib.CachedBmp_14155();
+	this.instance_82.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_83 = new lib.CachedBmp_14154();
+	this.instance_83.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_84 = new lib.CachedBmp_14153();
+	this.instance_84.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_85 = new lib.CachedBmp_14162();
+	this.instance_85.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_86 = new lib.CachedBmp_14161();
+	this.instance_86.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_87 = new lib.CachedBmp_14160();
+	this.instance_87.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_88 = new lib.CachedBmp_14159();
+	this.instance_88.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_89 = new lib.CachedBmp_14158();
+	this.instance_89.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_90 = new lib.CachedBmp_14183();
+	this.instance_90.setTransform(317.55,417.5,0.5,0.5);
+	this.instance_91 = new lib.CachedBmp_14169();
+	this.instance_91.setTransform(449.25,296.2,0.5,0.5);
+	this.instance_92 = new lib.CachedBmp_14168();
+	this.instance_92.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_93 = new lib.CachedBmp_14167();
+	this.instance_93.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_94 = new lib.CachedBmp_14166();
+	this.instance_94.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_95 = new lib.CachedBmp_14165();
+	this.instance_95.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_96 = new lib.CachedBmp_14164();
+	this.instance_96.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_97 = new lib.CachedBmp_14163();
+	this.instance_97.setTransform(317.55,289.9,0.5,0.5);
+	this.instance_98 = new lib.CachedBmp_14175();
+	this.instance_98.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_99 = new lib.CachedBmp_14174();
+	this.instance_99.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_100 = new lib.CachedBmp_14173();
+	this.instance_100.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_101 = new lib.CachedBmp_14172();
+	this.instance_101.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_102 = new lib.CachedBmp_14171();
+	this.instance_102.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_103 = new lib.CachedBmp_14182();
+	this.instance_103.setTransform(450.75,297.15,0.5,0.5);
+	this.instance_104 = new lib.CachedBmp_14181();
+	this.instance_104.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_105 = new lib.CachedBmp_14180();
+	this.instance_105.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_106 = new lib.CachedBmp_14179();
+	this.instance_106.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_107 = new lib.CachedBmp_14178();
+	this.instance_107.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_108 = new lib.CachedBmp_14177();
+	this.instance_108.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_109 = new lib.CachedBmp_14176();
+	this.instance_109.setTransform(317.55,290.85,0.5,0.5);
+	this.instance_110 = new lib.CachedBmp_14188();
+	this.instance_110.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_111 = new lib.CachedBmp_14187();
+	this.instance_111.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_112 = new lib.CachedBmp_14186();
+	this.instance_112.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_113 = new lib.CachedBmp_14185();
+	this.instance_113.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_114 = new lib.CachedBmp_14184();
+	this.instance_114.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_115 = new lib.CachedBmp_14195();
+	this.instance_115.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_116 = new lib.CachedBmp_14194();
+	this.instance_116.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_117 = new lib.CachedBmp_14193();
+	this.instance_117.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_118 = new lib.CachedBmp_14192();
+	this.instance_118.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_119 = new lib.CachedBmp_14191();
+	this.instance_119.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_120 = new lib.CachedBmp_14190();
+	this.instance_120.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_121 = new lib.CachedBmp_14219();
+	this.instance_121.setTransform(317.55,290.85,0.5,0.5);
+	this.instance_122 = new lib.CachedBmp_14203();
+	this.instance_122.setTransform(770.2,302.95,0.5,0.5);
+	this.instance_123 = new lib.CachedBmp_14202();
+	this.instance_123.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_124 = new lib.CachedBmp_14201();
+	this.instance_124.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_125 = new lib.CachedBmp_14200();
+	this.instance_125.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_126 = new lib.CachedBmp_14199();
+	this.instance_126.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_127 = new lib.CachedBmp_14198();
+	this.instance_127.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_128 = new lib.CachedBmp_14197();
+	this.instance_128.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_129 = new lib.CachedBmp_14196();
+	this.instance_129.setTransform(317.55,290.85,0.5,0.5);
+	this.instance_130 = new lib.CachedBmp_14210();
+	this.instance_130.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_131 = new lib.CachedBmp_14209();
+	this.instance_131.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_132 = new lib.CachedBmp_14208();
+	this.instance_132.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_133 = new lib.CachedBmp_14207();
+	this.instance_133.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_134 = new lib.CachedBmp_14206();
+	this.instance_134.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_135 = new lib.CachedBmp_14205();
+	this.instance_135.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_136 = new lib.CachedBmp_14218();
+	this.instance_136.setTransform(771.8,304.25,0.5,0.5);
+	this.instance_137 = new lib.CachedBmp_14217();
+	this.instance_137.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_138 = new lib.CachedBmp_14216();
+	this.instance_138.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_139 = new lib.CachedBmp_14215();
+	this.instance_139.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_140 = new lib.CachedBmp_14214();
+	this.instance_140.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_141 = new lib.CachedBmp_14213();
+	this.instance_141.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_142 = new lib.CachedBmp_14212();
+	this.instance_142.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_143 = new lib.CachedBmp_14211();
+	this.instance_143.setTransform(317.55,290.85,0.5,0.5);
+	this.instance_144 = new lib.CachedBmp_14225();
+	this.instance_144.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_145 = new lib.CachedBmp_14224();
+	this.instance_145.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_146 = new lib.CachedBmp_14223();
+	this.instance_146.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_147 = new lib.CachedBmp_14222();
+	this.instance_147.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_148 = new lib.CachedBmp_14221();
+	this.instance_148.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_149 = new lib.CachedBmp_14220();
+	this.instance_149.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_150 = new lib.CachedBmp_14233();
+	this.instance_150.setTransform(771.75,302.95,0.5,0.5);
+	this.instance_151 = new lib.CachedBmp_14232();
+	this.instance_151.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_152 = new lib.CachedBmp_14231();
+	this.instance_152.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_153 = new lib.CachedBmp_14230();
+	this.instance_153.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_154 = new lib.CachedBmp_14229();
+	this.instance_154.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_155 = new lib.CachedBmp_14228();
+	this.instance_155.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_156 = new lib.CachedBmp_14227();
+	this.instance_156.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_157 = new lib.CachedBmp_14260();
+	this.instance_157.setTransform(317.55,290.85,0.5,0.5);
+	this.instance_158 = new lib.CachedBmp_14242();
+	this.instance_158.setTransform(583.35,177.35,0.5,0.5);
+	this.instance_159 = new lib.CachedBmp_14241();
+	this.instance_159.setTransform(771.75,302.95,0.5,0.5);
+	this.instance_160 = new lib.CachedBmp_14240();
+	this.instance_160.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_161 = new lib.CachedBmp_14239();
+	this.instance_161.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_162 = new lib.CachedBmp_14238();
+	this.instance_162.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_163 = new lib.CachedBmp_14237();
+	this.instance_163.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_164 = new lib.CachedBmp_14236();
+	this.instance_164.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_165 = new lib.CachedBmp_14235();
+	this.instance_165.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_166 = new lib.CachedBmp_14234();
+	this.instance_166.setTransform(317.55,168.5,0.5,0.5);
+	this.instance_167 = new lib.CachedBmp_14250();
+	this.instance_167.setTransform(771.75,302.95,0.5,0.5);
+	this.instance_168 = new lib.CachedBmp_14249();
+	this.instance_168.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_169 = new lib.CachedBmp_14248();
+	this.instance_169.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_170 = new lib.CachedBmp_14247();
+	this.instance_170.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_171 = new lib.CachedBmp_14246();
+	this.instance_171.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_172 = new lib.CachedBmp_14245();
+	this.instance_172.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_173 = new lib.CachedBmp_14244();
+	this.instance_173.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_174 = new lib.CachedBmp_14259();
+	this.instance_174.setTransform(594.2,173.65,0.5,0.5);
+	this.instance_175 = new lib.CachedBmp_14258();
+	this.instance_175.setTransform(771.75,302.95,0.5,0.5);
+	this.instance_176 = new lib.CachedBmp_14257();
+	this.instance_176.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_177 = new lib.CachedBmp_14256();
+	this.instance_177.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_178 = new lib.CachedBmp_14255();
+	this.instance_178.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_179 = new lib.CachedBmp_14254();
+	this.instance_179.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_180 = new lib.CachedBmp_14253();
+	this.instance_180.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_181 = new lib.CachedBmp_14252();
+	this.instance_181.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_182 = new lib.CachedBmp_14251();
+	this.instance_182.setTransform(317.55,164.8,0.5,0.5);
+	this.instance_183 = new lib.CachedBmp_14267();
+	this.instance_183.setTransform(771.75,302.95,0.5,0.5);
+	this.instance_184 = new lib.CachedBmp_14266();
+	this.instance_184.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_185 = new lib.CachedBmp_14265();
+	this.instance_185.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_186 = new lib.CachedBmp_14264();
+	this.instance_186.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_187 = new lib.CachedBmp_14263();
+	this.instance_187.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_188 = new lib.CachedBmp_14262();
+	this.instance_188.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_189 = new lib.CachedBmp_14261();
+	this.instance_189.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_190 = new lib.CachedBmp_14276();
+	this.instance_190.setTransform(593.05,184.45,0.5,0.5);
+	this.instance_191 = new lib.CachedBmp_14275();
+	this.instance_191.setTransform(771.75,302.95,0.5,0.5);
+	this.instance_192 = new lib.CachedBmp_14274();
+	this.instance_192.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_193 = new lib.CachedBmp_14273();
+	this.instance_193.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_194 = new lib.CachedBmp_14272();
+	this.instance_194.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_195 = new lib.CachedBmp_14271();
+	this.instance_195.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_196 = new lib.CachedBmp_14270();
+	this.instance_196.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_197 = new lib.CachedBmp_14269();
+	this.instance_197.setTransform(38.1,66.85,0.5,0.5);
+	this.instance_198 = new lib.CachedBmp_14277();
+	this.instance_198.setTransform(317.55,175.6,0.5,0.5);
+	this.instance_199 = new lib.CachedBmp_14286();
+	this.instance_199.setTransform(98.1,194.3,0.5,0.5);
+	this.instance_200 = new lib.CachedBmp_14285();
+	this.instance_200.setTransform(593.05,184.45,0.5,0.5);
+	this.instance_201 = new lib.CachedBmp_14284();
+	this.instance_201.setTransform(771.75,302.95,0.5,0.5);
+	this.instance_202 = new lib.CachedBmp_14283();
+	this.instance_202.setTransform(448.75,297.15,0.5,0.5);
+	this.instance_203 = new lib.CachedBmp_14282();
+	this.instance_203.setTransform(842.7,427.1,0.5,0.5);
+	this.instance_204 = new lib.CachedBmp_14281();
+	this.instance_204.setTransform(390.9,424.8,0.5,0.5);
+	this.instance_205 = new lib.CachedBmp_14280();
+	this.instance_205.setTransform(896.5,520.7,0.5,0.5);
+	this.instance_206 = new lib.CachedBmp_14279();
+	this.instance_206.setTransform(387.95,2.6,0.5,0.5);
+	this.instance_207 = new lib.CachedBmp_14278();
+	this.instance_207.setTransform(38.1,66.85,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_10},{t:this.instance_9},{t:this.instance_8,p:{y:685}}]}).to({state:[{t:this.instance_14},{t:this.instance_13},{t:this.instance_12},{t:this.instance_8,p:{y:685}},{t:this.instance_11}]},79).to({state:[{t:this.instance_16},{t:this.instance_15},{t:this.instance_8,p:{y:685}}]},1).to({state:[{t:this.instance_20},{t:this.instance_19},{t:this.instance_18},{t:this.instance_8,p:{y:685}},{t:this.instance_17}]},1).to({state:[{t:this.instance_22},{t:this.instance_21},{t:this.instance_8,p:{y:685}}]},1).to({state:[{t:this.instance_20},{t:this.instance_25},{t:this.instance_24},{t:this.instance_8,p:{y:685}},{t:this.instance_23}]},1).to({state:[{t:this.instance_30},{t:this.instance_29},{t:this.instance_28},{t:this.instance_8,p:{y:685}},{t:this.instance_27},{t:this.instance_26}]},82).to({state:[{t:this.instance_20},{t:this.instance_33},{t:this.instance_32},{t:this.instance_8,p:{y:684}},{t:this.instance_31}]},1).to({state:[{t:this.instance_38},{t:this.instance_37},{t:this.instance_36},{t:this.instance_8,p:{y:685}},{t:this.instance_35},{t:this.instance_34}]},3).to({state:[{t:this.instance_44},{t:this.instance_43},{t:this.instance_42},{t:this.instance_8,p:{y:685}},{t:this.instance_41},{t:this.instance_40},{t:this.instance_39}]},42).to({state:[{t:this.instance_38},{t:this.instance_48},{t:this.instance_47},{t:this.instance_8,p:{y:685}},{t:this.instance_46},{t:this.instance_45}]},1).to({state:[{t:this.instance_54},{t:this.instance_53},{t:this.instance_52},{t:this.instance_8,p:{y:685}},{t:this.instance_51},{t:this.instance_50},{t:this.instance_49}]},1).to({state:[{t:this.instance_38},{t:this.instance_58},{t:this.instance_57},{t:this.instance_8,p:{y:685}},{t:this.instance_56},{t:this.instance_55}]},1).to({state:[{t:this.instance_64},{t:this.instance_63},{t:this.instance_62},{t:this.instance_8,p:{y:685}},{t:this.instance_61},{t:this.instance_60},{t:this.instance_59}]},1).to({state:[{t:this.instance_70},{t:this.instance_69},{t:this.instance_68},{t:this.instance_8,p:{y:685}},{t:this.instance_67},{t:this.instance_60},{t:this.instance_66},{t:this.instance_65}]},40).to({state:[{t:this.instance_64},{t:this.instance_74},{t:this.instance_73},{t:this.instance_8,p:{y:685}},{t:this.instance_72},{t:this.instance_60},{t:this.instance_71}]},1).to({state:[{t:this.instance_80},{t:this.instance_79},{t:this.instance_78},{t:this.instance_8,p:{y:685}},{t:this.instance_77},{t:this.instance_60},{t:this.instance_76},{t:this.instance_75}]},1).to({state:[{t:this.instance_64},{t:this.instance_84},{t:this.instance_83},{t:this.instance_8,p:{y:685}},{t:this.instance_82},{t:this.instance_60},{t:this.instance_81}]},1).to({state:[{t:this.instance_90},{t:this.instance_89},{t:this.instance_88},{t:this.instance_8,p:{y:685}},{t:this.instance_87},{t:this.instance_60},{t:this.instance_86},{t:this.instance_85}]},1).to({state:[{t:this.instance_97},{t:this.instance_96},{t:this.instance_95},{t:this.instance_8,p:{y:685}},{t:this.instance_94},{t:this.instance_60},{t:this.instance_93},{t:this.instance_92},{t:this.instance_91}]},41).to({state:[{t:this.instance_90},{t:this.instance_102},{t:this.instance_101},{t:this.instance_8,p:{y:685}},{t:this.instance_100},{t:this.instance_60},{t:this.instance_99},{t:this.instance_98}]},1).to({state:[{t:this.instance_109},{t:this.instance_108},{t:this.instance_107},{t:this.instance_8,p:{y:685}},{t:this.instance_106},{t:this.instance_60},{t:this.instance_105},{t:this.instance_104},{t:this.instance_103}]},1).to({state:[{t:this.instance_90},{t:this.instance_114},{t:this.instance_113},{t:this.instance_8,p:{y:685}},{t:this.instance_112},{t:this.instance_60},{t:this.instance_111},{t:this.instance_110}]},1).to({state:[{t:this.instance_121},{t:this.instance_120},{t:this.instance_119},{t:this.instance_8,p:{y:685}},{t:this.instance_118},{t:this.instance_60},{t:this.instance_117},{t:this.instance_116},{t:this.instance_115}]},1).to({state:[{t:this.instance_129},{t:this.instance_128},{t:this.instance_127},{t:this.instance_8,p:{y:685}},{t:this.instance_126},{t:this.instance_60},{t:this.instance_125},{t:this.instance_124},{t:this.instance_123},{t:this.instance_122}]},45).to({state:[{t:this.instance_121},{t:this.instance_135},{t:this.instance_134},{t:this.instance_8,p:{y:685}},{t:this.instance_133},{t:this.instance_60},{t:this.instance_132},{t:this.instance_131},{t:this.instance_130}]},1).to({state:[{t:this.instance_143},{t:this.instance_142},{t:this.instance_141},{t:this.instance_8,p:{y:685}},{t:this.instance_140},{t:this.instance_60},{t:this.instance_139},{t:this.instance_138},{t:this.instance_137},{t:this.instance_136}]},1).to({state:[{t:this.instance_121},{t:this.instance_149},{t:this.instance_148},{t:this.instance_8,p:{y:685}},{t:this.instance_147},{t:this.instance_60},{t:this.instance_146},{t:this.instance_145},{t:this.instance_144}]},1).to({state:[{t:this.instance_157},{t:this.instance_156},{t:this.instance_155},{t:this.instance_8,p:{y:685}},{t:this.instance_154},{t:this.instance_60},{t:this.instance_153},{t:this.instance_152},{t:this.instance_151},{t:this.instance_150}]},1).to({state:[{t:this.instance_166},{t:this.instance_165},{t:this.instance_164},{t:this.instance_8,p:{y:685}},{t:this.instance_163},{t:this.instance_60},{t:this.instance_162},{t:this.instance_161},{t:this.instance_160},{t:this.instance_159},{t:this.instance_158}]},47).to({state:[{t:this.instance_157},{t:this.instance_173},{t:this.instance_172},{t:this.instance_8,p:{y:685}},{t:this.instance_171},{t:this.instance_60},{t:this.instance_170},{t:this.instance_169},{t:this.instance_168},{t:this.instance_167}]},1).to({state:[{t:this.instance_182},{t:this.instance_181},{t:this.instance_180},{t:this.instance_8,p:{y:685}},{t:this.instance_179},{t:this.instance_60},{t:this.instance_178},{t:this.instance_177},{t:this.instance_176},{t:this.instance_175},{t:this.instance_174}]},1).to({state:[{t:this.instance_157},{t:this.instance_189},{t:this.instance_188},{t:this.instance_8,p:{y:685}},{t:this.instance_187},{t:this.instance_60},{t:this.instance_186},{t:this.instance_185},{t:this.instance_184},{t:this.instance_183}]},1).to({state:[{t:this.instance_198},{t:this.instance_197},{t:this.instance_196},{t:this.instance_8,p:{y:685}},{t:this.instance_195},{t:this.instance_60},{t:this.instance_194},{t:this.instance_193},{t:this.instance_192},{t:this.instance_191},{t:this.instance_190}]},1).to({state:[{t:this.instance_198},{t:this.instance_207},{t:this.instance_206},{t:this.instance_8,p:{y:685}},{t:this.instance_205},{t:this.instance_60},{t:this.instance_204},{t:this.instance_203},{t:this.instance_202},{t:this.instance_201},{t:this.instance_200},{t:this.instance_199}]},4).wait(1));
+	// 按钮层
+	this.btnstop = new lib.stop();
+	this.btnstop.name = "btnstop";
+	this.btnstop.setTransform(329.95,690.2);
+	new cjs.ButtonHelper(this.btnstop, 0, 1, 2);
+	this.replay = new lib.replay();
+	this.replay.name = "replay";
+	this.replay.setTransform(260.55,690.2);
+	new cjs.ButtonHelper(this.replay, 0, 1, 2);
+	this.btnback = new lib.pre();
+	this.btnback.name = "btnback";
+	this.btnback.setTransform(189.15,690.2);
+	new cjs.ButtonHelper(this.btnback, 0, 1, 2);
+	this.btnplay = new lib.play();
+	this.btnplay.name = "btnplay";
+	this.btnplay.setTransform(117.8,689.75);
+	new cjs.ButtonHelper(this.btnplay, 0, 1, 2);
+	this.btnnext = new lib.next();
+	this.btnnext.name = "btnnext";
+	this.btnnext.setTransform(40.1,689.75);
+	new cjs.ButtonHelper(this.btnnext, 0, 1, 2);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.btnnext},{t:this.btnplay},{t:this.btnback},{t:this.replay},{t:this.btnstop}]}).wait(409));
+	this._renderFirstFrame();
+}).prototype = p = new lib.AnMovieClip();
+p.nominalBounds = new cjs.Rectangle(550.1,386.6,457,349.4);
+// library properties:
+lib.properties = {
+	id: '6D2A79B708C8B6499978805A390D58C3',
+	width: 1024,
+	height: 768,
+	fps: 24,
+	color: "#FFFFFF",
+	opacity: 1.00,
+	manifest: [
+		{src:"images/哈夫曼树的构造_atlas_1.png?1748922447028", id:"哈夫曼树的构造_atlas_1"},
+		{src:"images/哈夫曼树的构造_atlas_2.png?1748922447028", id:"哈夫曼树的构造_atlas_2"},
+		{src:"images/哈夫曼树的构造_atlas_3.png?1748922447029", id:"哈夫曼树的构造_atlas_3"},
+		{src:"images/哈夫曼树的构造_atlas_4.png?1748922447029", id:"哈夫曼树的构造_atlas_4"},
+		{src:"images/哈夫曼树的构造_atlas_5.png?1748922447029", id:"哈夫曼树的构造_atlas_5"},
+		{src:"images/哈夫曼树的构造_atlas_6.png?1748922447029", id:"哈夫曼树的构造_atlas_6"},
+		{src:"images/哈夫曼树的构造_atlas_7.png?1748922447030", id:"哈夫曼树的构造_atlas_7"},
+		{src:"images/哈夫曼树的构造_atlas_8.png?1748922447032", id:"哈夫曼树的构造_atlas_8"}
+	],
+	preloads: []
+};
+// bootstrap callback support:
+(lib.Stage = function(canvas) {
+	createjs.Stage.call(this, canvas);
+}).prototype = p = new createjs.Stage();
+p.setAutoPlay = function(autoPlay) {
+	this.tickEnabled = autoPlay;
+}
+p.play = function() { this.tickEnabled = true; this.getChildAt(0).gotoAndPlay(this.getTimelinePosition()) }
+p.stop = function(ms) { if(ms) this.seek(ms); this.tickEnabled = false; }
+p.seek = function(ms) { this.tickEnabled = true; this.getChildAt(0).gotoAndStop(lib.properties.fps * ms / 1000); }
+p.getDuration = function() { return this.getChildAt(0).totalFrames / lib.properties.fps * 1000; }
+p.getTimelinePosition = function() { return this.getChildAt(0).currentFrame / lib.properties.fps * 1000; }
+an.bootcompsLoaded = an.bootcompsLoaded || [];
+if(!an.bootstrapListeners) {
+	an.bootstrapListeners=[];
+}
+an.bootstrapCallback=function(fnCallback) {
+	an.bootstrapListeners.push(fnCallback);
+	if(an.bootcompsLoaded.length > 0) {
+		for(var i=0; i<an.bootcompsLoaded.length; ++i) {
+			fnCallback(an.bootcompsLoaded[i]);
+		}
+	}
+};
+an.compositions = an.compositions || {};
+an.compositions['6D2A79B708C8B6499978805A390D58C3'] = {
+	getStage: function() { return exportRoot.stage; },
+	getLibrary: function() { return lib; },
+	getSpriteSheet: function() { return ss; },
+	getImages: function() { return img; }
+};
+an.compositionLoaded = function(id) {
+	an.bootcompsLoaded.push(id);
+	for(var j=0; j<an.bootstrapListeners.length; j++) {
+		an.bootstrapListeners[j](id);
+	}
+}
+an.getComposition = function(id) {
+	return an.compositions[id];
+}
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
+	var lastW, lastH, lastS=1;		
+	window.addEventListener('resize', resizeCanvas);		
+	resizeCanvas();		
+	function resizeCanvas() {			
+		var w = lib.properties.width, h = lib.properties.height;			
+		var iw = window.innerWidth, ih=window.innerHeight;			
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
+		if(isResp) {                
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+				sRatio = lastS;                
+			}				
+			else if(!isScale) {					
+				if(iw<w || ih<h)						
+					sRatio = Math.min(xRatio, yRatio);				
+			}				
+			else if(scaleType==1) {					
+				sRatio = Math.min(xRatio, yRatio);				
+			}				
+			else if(scaleType==2) {					
+				sRatio = Math.max(xRatio, yRatio);				
+			}			
+		}
+		domContainers[0].width = w * pRatio * sRatio;			
+		domContainers[0].height = h * pRatio * sRatio;
+		domContainers.forEach(function(container) {				
+			container.style.width = w * sRatio + 'px';				
+			container.style.height = h * sRatio + 'px';			
+		});
+		stage.scaleX = pRatio*sRatio;			
+		stage.scaleY = pRatio*sRatio;
+		lastW = iw; lastH = ih; lastS = sRatio;            
+		stage.tickOnUpdate = false;            
+		stage.update();            
+		stage.tickOnUpdate = true;		
+	}
+}
+an.handleSoundStreamOnTick = function(event) {
+	if(!event.paused){
+		var stageChild = stage.getChildAt(0);
+		if(!stageChild.paused || stageChild.ignorePause){
+			stageChild.syncStreamSounds();
+		}
+	}
+}
+an.handleFilterCache = function(event) {
+	if(!event.paused){
+		var target = event.target;
+		if(target){
+			if(target.filterCacheList){
+				for(var index = 0; index < target.filterCacheList.length ; index++){
+					var cacheInst = target.filterCacheList[index];
+					if((cacheInst.startFrame <= target.currentFrame) && (target.currentFrame <= cacheInst.endFrame)){
+						cacheInst.instance.cache(cacheInst.x, cacheInst.y, cacheInst.w, cacheInst.h);
+					}
+				}
+			}
+		}
+	}
+}
+})(createjs = createjs||{}, AdobeAn = AdobeAn||{});
+var createjs, AdobeAn;
+</script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("6D2A79B708C8B6499978805A390D58C3");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.哈夫曼树的构造();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+<!-- write your code here -->
+</head>
+<body onload="init();" style="margin:0px;">
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:1024px; height:768px">
+		<canvas id="canvas" width="1024" height="768" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1024px; height:768px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+</body>
+</html>

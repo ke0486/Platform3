@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<!--
+	NOTES:
+	1. All tokens are represented by '$' sign in the template.
+	2. You can write your code only wherever mentioned.
+	3. All occurrences of existing tokens will be replaced by their appropriate values.
+	4. Blank lines will be removed automatically.
+	5. Remove unnecessary comments before creating your template.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<title>散列表构造-拉链法</title>
+<!-- write your code here -->
+<style>
+  #animation_container {
+	position:absolute;
+	margin:auto;
+	left:0;right:0;
+	top:0;bottom:0;
+  }
+</style>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script>
+(function (cjs, an) {
+var p; // shortcut to reference prototypes
+var lib={};var ss={};var img={};
+lib.ssMetadata = [
+		{name:"散列表构造_拉链法_atlas_1", frames: [[140,782,45,48],[187,782,45,48],[234,782,45,48],[281,782,45,48],[328,782,45,48],[375,782,45,48],[422,782,45,48],[1811,627,68,48],[1881,627,68,48],[1811,677,68,48],[1881,677,68,48],[1811,727,68,48],[1881,727,68,48],[1811,777,68,48],[1881,777,68,48],[1811,483,120,70],[0,782,68,48],[70,782,68,48],[1811,555,120,70],[469,782,45,48],[516,782,45,48],[1148,812,45,48],[1195,812,45,48],[1242,812,45,48],[1289,812,45,48],[1336,812,45,48],[1383,812,45,48],[905,0,344,387],[1978,372,38,598],[905,389,1071,45],[0,714,572,66],[1251,0,344,387],[1771,483,38,598],[905,436,1071,45],[574,762,572,66],[0,0,903,619],[1148,762,431,48],[1597,0,431,91],[1597,93,431,91],[1597,186,431,91],[1597,279,431,91],[905,483,431,91],[1338,483,431,91],[905,576,431,91],[1338,576,431,91],[0,621,431,91],[433,621,431,91],[866,669,431,91],[1299,669,431,91],[1581,762,183,51]]}
+];
+(lib.AnMovieClip = function(){
+	this.actionFrames = [];
+	this.ignorePause = false;
+	this.gotoAndPlay = function(positionOrLabel){
+		cjs.MovieClip.prototype.gotoAndPlay.call(this,positionOrLabel);
+	}
+	this.play = function(){
+		cjs.MovieClip.prototype.play.call(this);
+	}
+	this.gotoAndStop = function(positionOrLabel){
+		cjs.MovieClip.prototype.gotoAndStop.call(this,positionOrLabel);
+	}
+	this.stop = function(){
+		cjs.MovieClip.prototype.stop.call(this);
+	}
+}).prototype = p = new cjs.MovieClip();
+// symbols:
+(lib.CachedBmp_19656 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19655 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19654 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19653 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(3);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19652 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(4);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19651 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(5);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19650 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(6);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19649 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(7);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19647 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(8);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19645 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(9);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19643 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(10);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19641 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(11);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19639 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(12);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19637 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(13);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19635 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(14);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19648 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(15);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19633 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(16);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19631 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(17);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19632 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(18);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19629 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(19);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19628 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(20);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19627 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(21);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19626 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(22);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19625 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(23);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19624 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(24);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19623 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(25);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19622 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(26);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19621 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(27);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19620 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(28);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19619 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(29);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19618 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(30);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19616 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(31);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19615 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(32);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19614 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(33);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19613 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(34);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19617 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(35);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19611 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(36);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19610 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(37);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19609 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(38);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19608 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(39);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19607 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(40);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19606 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(41);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19605 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(42);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19604 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(43);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19603 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(44);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19602 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(45);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19601 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(46);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19600 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(47);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_19599 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(48);
+}).prototype = p = new cjs.Sprite();
+(lib.校徽 = function() {
+	this.initialize(ss["散列表构造_拉链法_atlas_1"]);
+	this.gotoAndStop(49);
+}).prototype = p = new cjs.Sprite();
+(lib.方块 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f().s("#FFFFFF").ss(1,1,1).p("AC0C0IlnAAIAAlnIFnAAgACgCfIkrAAIAAkqIErAAg");
+	this.shape.setTransform(17.975,17.975);
+	this.shape_1 = new cjs.Shape();
+	this.shape_1.graphics.f("#0099FF").s().p("AiVCWIAAkrIErAAIAAErg");
+	this.shape_1.setTransform(18.975,18.925);
+	this.shape_2 = new cjs.Shape();
+	this.shape_2.graphics.f("#666666").s().p("AizC0IAAlnIFnAAIAAFngAiLCfIErAAIAAkqIkrAAg");
+	this.shape_2.setTransform(17.975,17.975);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,38,38);
+(lib.空 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f().s("#000000").ss(2,1,1).p("AgnA1IAnhpIAoBp");
+	this.shape.setTransform(0,5.25);
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-5,-1,10,12.5);
+(lib.stop = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层 1
+	this.instance = new lib.CachedBmp_19647();
+	this.instance.setTransform(9.9,17.35,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_19648();
+	this.instance_1.setTransform(-2,12,0.5,0.5);
+	this.instance_2 = new lib.CachedBmp_19649();
+	this.instance_2.setTransform(9.9,17.35,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_1},{t:this.instance_2}]},2).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,12,60,35);
+(lib.replay = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层 1
+	this.instance = new lib.CachedBmp_19643();
+	this.instance.setTransform(8.9,17.8,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_19648();
+	this.instance_1.setTransform(-2,12,0.5,0.5);
+	this.instance_2 = new lib.CachedBmp_19645();
+	this.instance_2.setTransform(8.9,17.8,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_1},{t:this.instance_2}]},2).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,12,60,35);
+(lib.pre = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层 1
+	this.instance = new lib.CachedBmp_19639();
+	this.instance.setTransform(8.9,17.8,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_19648();
+	this.instance_1.setTransform(-2,12,0.5,0.5);
+	this.instance_2 = new lib.CachedBmp_19641();
+	this.instance_2.setTransform(8.9,17.8,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_1},{t:this.instance_2}]},2).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,12,60,35);
+(lib.play = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层 1
+	this.instance = new lib.CachedBmp_19635();
+	this.instance.setTransform(10,17.8,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_19648();
+	this.instance_1.setTransform(-2,12,0.5,0.5);
+	this.instance_2 = new lib.CachedBmp_19637();
+	this.instance_2.setTransform(10,17.8,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_1},{t:this.instance_2}]},2).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,12,60,35);
+(lib.next = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层 1
+	this.instance = new lib.CachedBmp_19631();
+	this.instance.setTransform(10,16.35,0.5,0.5);
+	this.instance_1 = new lib.CachedBmp_19632();
+	this.instance_1.setTransform(-2,12,0.5,0.5);
+	this.instance_2 = new lib.CachedBmp_19633();
+	this.instance_2.setTransform(11,17.35,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_1},{t:this.instance_2}]},2).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-2,12,60,35);
+(lib.指针 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f().s("#000000").ss(2,1,1).p("ABnAAIjNAAABnAAIgoAtAA/gsIAoAs");
+	this.shape.setTransform(19.25,4.5);
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(8,-1,22.5,11);
+(lib.四十四 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(34.1,15.85,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19656();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.四十一副本 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_19655();
+	this.instance.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_1 = new lib.方块("synched",0);
+	this.instance_1.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.四十一 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(34.1,15.25,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19654();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.五十一副本 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_19653();
+	this.instance.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_1 = new lib.方块("synched",0);
+	this.instance_1.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.五十一 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(35.35,15.55,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19652();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.二十五 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(36.35,15.95,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19651();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.二十六 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(36.35,14.95,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19650();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.六十八 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(35.35,15.55,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19629();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.六 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(34.1,15.55,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19628();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.十五 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(35.3,15.55,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19627();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.十二副本 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_19626();
+	this.instance.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_1 = new lib.方块("synched",0);
+	this.instance_1.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.十二 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(35.3,15.85,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19625();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib._68 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.六十八("synched",0);
+	this.instance.setTransform(25,15,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-217.8,y:47.45},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-238.7,-1,289.7,61.9);
+(lib._51 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.五十一("synched",0);
+	this.instance.setTransform(25,15,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-118.3,y:254.25},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-139.2,-1,190.2,268.7);
+(lib._44 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.四十四("synched",0);
+	this.instance.setTransform(25,15,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-217.7,y:91.45},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-238.6,-1,289.6,105.9);
+(lib._41 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.四十一("synched",0);
+	this.instance.setTransform(25,15,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-217.4,y:23.25},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-238.3,-1,289.3,37.7);
+(lib._26 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.二十六("synched",0);
+	this.instance.setTransform(25,15,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-216.2,y:-23.7},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-237.1,-37.2,288.1,68.2);
+(lib._25 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.二十五("synched",0);
+	this.instance.setTransform(25,15,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-67.5,y:254.2},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-88.4,-1,139.4,268.7);
+(lib._15 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.十五("synched",0);
+	this.instance.setTransform(25,15,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-168.95,y:23.55},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-189.9,-1,240.9,38);
+(lib._12 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.十二("synched",0);
+	this.instance.setTransform(25,15,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-168.9,y:254.2},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-189.8,-1,240.8,268.7);
+(lib._06 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.六("synched",0);
+	this.instance.setTransform(25,15,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-217.8,y:114.45},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-238.7,-1,289.7,128.9);
+(lib.三十六 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(35.35,14.95,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19624();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.三十八副本 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.CachedBmp_19623();
+	this.instance.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_1 = new lib.方块("synched",0);
+	this.instance_1.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib.三十八 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.空("synched",0);
+	this.instance.setTransform(36.6,15.25,1,1,0,0,0,0,5.2);
+	this.instance_1 = new lib.CachedBmp_19622();
+	this.instance_1.setTransform(4.5,3.5,0.5,0.5);
+	this.instance_2 = new lib.方块("synched",0);
+	this.instance_2.setTransform(24.9,14.95,1.3908,0.8345,0,0,0,17.9,17.9);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-1,-1,52,32);
+(lib._38 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.三十八("synched",0);
+	this.instance.setTransform(25,16,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-217.15,y:251.95},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-238.1,0,289.1,265.4);
+(lib._36 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	// 图层_1
+	this.instance = new lib.三十六("synched",0);
+	this.instance.setTransform(25,15,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:0.8,scaleY:0.8333,x:-218.05,y:204.1},29).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-239,-1,290,218.6);
+// stage content:
+(lib.散列表构造拉链法 = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+	this.actionFrames = [0,1,30,60,90,120,150,181,210,240,270,300,330];
+	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+		// 设置按钮的初始透明度
+		if (this.dback) this.dback.alpha = 0.5;
+		if (this.dstop) this.dstop.alpha = 0.5;
+		if (this.dnext) this.dnext.alpha = 0.5;
+		// 为播放按钮添加点击事件监听器
+		if (this.dplay) {
+		    this.dplay.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(1, "play"); // CreateJS 的帧索引从 0 开始，因此使用 1 表示第 2 帧
+		        }
+		    });
+		}
+		this.stop();
+		if (this.replay) {
+		    this.replay.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndStop(0, "play"); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		        }
+		    });
+		}
+	}
+	this.frame_1 = function() {
+		this.i=1;
+		// 设置按钮的初始透明度
+		if (this.btnplay) this.btnplay.alpha = 0.5;
+		// 为按钮添加点击事件监听器
+		if (this.btnnext) {
+		    this.btnnext.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(30, "play"); // CreateJS 的帧索引从 0 开始，因此使用 30 表示第 31 帧
+		        }
+		    });
+		}
+		if (this.btnstop) {
+		    this.btnstop.addEventListener("click", () => {
+		        this.stop();
+		        if (this.ts) this.ts.stop();
+		    });
+		}
+		if (this.btnback) {
+		    this.btnback.addEventListener("click", () => {
+		        if (this.btnplay) this.btnplay.alpha = 0.5;
+		        if (this.btnstop) this.btnstop.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(1, "play"); // CreateJS 的帧索引从 0 开始，因此使用 1 表示第 2 帧
+		        }
+		        if (this.ts) this.ts.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+		this.btnplay.addEventListener("click", playmove.bind(this));
+		function playmove(event) {
+		    if (this.currentFrame !== 330) { // 检查当前帧是否不是第 930 帧（AS3 中的 930 对应 CreateJS 中的 929）
+		        i = 2; // 更新变量 i 的值
+		        this.btnplay.alpha = 0.5; // 调整 btnplay 按钮的透明度
+		        this.btnstop.alpha = 1; // 调整 btnstop 按钮的透明度
+		        this.play(); // 播放时间轴
+		    }
+		}
+	}
+	this.frame_30 = function() {
+		// 设置按钮的初始透明度
+		// 为按钮添加点击事件监听器
+		if (this.btnnext1) {
+		    this.btnnext1.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(60, "play"); // CreateJS 的帧索引从 0 开始，因此使用 60 表示第 61 帧
+		        }
+		    });
+		}
+		if (this.btnstop1) {
+		    this.btnstop1.addEventListener("click", () => {
+		        this.stop();
+		        if (this.tts) this.tts.stop();
+		    });
+		}
+		if (this.btnback1) {
+		    this.btnback1.addEventListener("click", () => {
+		        if (this.btnplay1) this.btnplay1.alpha = 0.5;
+		        if (this.btnstop1) this.btnstop1.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(1, "play"); // CreateJS 的帧索引从 0 开始，因此使用 1 表示第 2 帧
+		        }
+		        if (this.tts) this.tts.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+	}
+	this.frame_60 = function() {
+		// 设置按钮的初始透明度
+		// 为按钮添加点击事件监听器
+		if (this.btnnext2) {
+		    this.btnnext2.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(90, "play"); // CreateJS 的帧索引从 0 开始，因此使用 90 表示第 91 帧
+		        }
+		    });
+		}
+		if (this.btnstop2) {
+		    this.btnstop2.addEventListener("click", () => {
+		        this.stop();
+		        if (this.fo) this.fo.stop();
+		    });
+		}
+		if (this.btnback2) {
+		    this.btnback2.addEventListener("click", () => {
+		        if (this.btnplay2) this.btnplay2.alpha = 0.5;
+		        if (this.btnstop2) this.btnstop2.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(30, "play"); // CreateJS 的帧索引从 0 开始，因此使用 30 表示第 31 帧
+		        }
+		        if (this.fo) this.fo.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+	}
+	this.frame_90 = function() {
+		// 设置按钮的初始透明度
+		// 为按钮添加点击事件监听器
+		if (this.btnnext3) {
+		    this.btnnext3.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(120, "play"); // CreateJS 的帧索引从 0 开始，因此使用 120 表示第 121 帧
+		        }
+		    });
+		}
+		if (this.btnstop3) {
+		    this.btnstop3.addEventListener("click", () => {
+		        this.stop();
+		        if (this.te) this.te.stop();
+		    });
+		}
+		if (this.btnback3) {
+		    this.btnback3.addEventListener("click", () => {
+		        if (this.btnplay3) this.btnplay3.alpha = 0.5;
+		        if (this.btnstop3) this.btnstop3.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(60, "play"); // CreateJS 的帧索引从 0 开始，因此使用 60 表示第 61 帧
+		        }
+		        if (this.te) this.te.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+	}
+	this.frame_120 = function() {
+		// 设置按钮的初始透明度
+		// 为按钮添加点击事件监听器
+		if (this.btnnext4) {
+		    this.btnnext4.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(150, "play"); // CreateJS 的帧索引从 0 开始，因此使用 150 表示第 151 帧
+		        }
+		    });
+		}
+		if (this.btnstop4) {
+		    this.btnstop4.addEventListener("click", () => {
+		        this.stop();
+		        if (this.ff) this.ff.stop();
+		    });
+		}
+		if (this.btnback4) {
+		    this.btnback4.addEventListener("click", () => {
+		        if (this.btnplay4) this.btnplay4.alpha = 0.5;
+		        if (this.btnstop4) this.btnstop4.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(90, "play"); // CreateJS 的帧索引从 0 开始，因此使用 90 表示第 91 帧
+		        }
+		        if (this.ff) this.ff.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+	}
+	this.frame_150 = function() {
+		// 设置按钮的初始透明度
+		// 为按钮添加点击事件监听器
+		if (this.btnnext5) {
+		    this.btnnext5.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(180, "play"); // CreateJS 的帧索引从 0 开始，因此使用 180 表示第 181 帧
+		        }
+		    });
+		}
+		if (this.btnstop5) {
+		    this.btnstop5.addEventListener("click", () => {
+		        this.stop();
+		        if (this.of) this.of.stop();
+		    });
+		}
+		if (this.btnback5) {
+		    this.btnback5.addEventListener("click", () => {
+		        if (this.btnplay5) this.btnplay5.alpha = 0.5;
+		        if (this.btnstop5) this.btnstop5.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(120, "play"); // CreateJS 的帧索引从 0 开始，因此使用 120 表示第 121 帧
+		        }
+		        if (this.of) this.of.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+	}
+	this.frame_181 = function() {
+		// 设置按钮的初始透明度
+		// 为按钮添加点击事件监听器
+		if (this.btnnext6) {
+		    this.btnnext6.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(210, "play"); // CreateJS 的帧索引从 0 开始，因此使用 210 表示第 211 帧
+		        }
+		    });
+		}
+		if (this.btnstop6) {
+		    this.btnstop6.addEventListener("click", () => {
+		        this.stop();
+		        if (this.se) this.se.stop();
+		    });
+		}
+		if (this.btnback6) {
+		    this.btnback6.addEventListener("click", () => {
+		        if (this.btnplay6) this.btnplay6.alpha = 0.5;
+		        if (this.btnstop6) this.btnstop6.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(150, "play"); // CreateJS 的帧索引从 0 开始，因此使用 150 表示第 151 帧
+		        }
+		        if (this.se) this.se.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+	}
+	this.frame_210 = function() {
+		// 设置按钮的初始透明度
+		// 为按钮添加点击事件监听器
+		if (this.btnnext7) {
+		    this.btnnext7.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(240, "play"); // CreateJS 的帧索引从 0 开始，因此使用 240 表示第 241 帧
+		        }
+		    });
+		}
+		if (this.btnstop7) {
+		    this.btnstop7.addEventListener("click", () => {
+		        this.stop();
+		        if (this.ott) this.ott.stop();
+		    });
+		}
+		if (this.btnback7) {
+		    this.btnback7.addEventListener("click", () => {
+		        if (this.btnplay7) this.btnplay7.alpha = 0.5;
+		        if (this.btnstop7) this.btnstop7.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(180, "play"); // CreateJS 的帧索引从 0 开始，因此使用 180 表示第 181 帧
+		        }
+		        if (this.ott) this.ott.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+	}
+	this.frame_240 = function() {
+		// 设置按钮的初始透明度
+		// 为按钮添加点击事件监听器
+		if (this.btnnext8) {
+		    this.btnnext8.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(270, "play"); // CreateJS 的帧索引从 0 开始，因此使用 270 表示第 271 帧
+		        }
+		    });
+		}
+		if (this.btnstop8) {
+		    this.btnstop8.addEventListener("click", () => {
+		        this.stop();
+		        if (this.zs) this.zs.stop();
+		    });
+		}
+		if (this.btnback8) {
+		    this.btnback8.addEventListener("click", () => {
+		        if (this.btnplay8) this.btnplay8.alpha = 0.5;
+		        if (this.btnstop8) this.btnstop8.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(210, "play"); // CreateJS 的帧索引从 0 开始，因此使用 210 表示第 211 帧
+		        }
+		        if (this.zs) this.zs.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+	}
+	this.frame_270 = function() {
+		// 设置按钮的初始透明度
+		// 为按钮添加点击事件监听器
+		if (this.btnnext9) {
+		    this.btnnext9.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(300, "play"); // CreateJS 的帧索引从 0 开始，因此使用 300 表示第 301 帧
+		        }
+		    });
+		}
+		if (this.btnstop9) {
+		    this.btnstop9.addEventListener("click", () => {
+		        this.stop();
+		        if (this.fo) this.fo.stop();
+		    });
+		}
+		if (this.btnback9) {
+		    this.btnback9.addEventListener("click", () => {
+		        if (this.btnplay9) this.btnplay9.alpha = 0.5;
+		        if (this.btnstop9) this.btnstop9.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(240, "play"); // CreateJS 的帧索引从 0 开始，因此使用 240 表示第 241 帧
+		        }
+		        if (this.fo) this.fo.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+	}
+	this.frame_300 = function() {
+		// 设置按钮的初始透明度
+		// 为按钮添加点击事件监听器
+		if (this.btnnext10) {
+		    this.btnnext10.addEventListener("click", () => {
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(330, "play"); // CreateJS 的帧索引从 0 开始，因此使用 330 表示第 331 帧
+		        }
+		    });
+		}
+		if (this.btnstop10) {
+		    this.btnstop10.addEventListener("click", () => {
+		        this.stop();
+		        if (this.tf) this.tf.stop();
+		    });
+		}
+		if (this.btnback10) {
+		    this.btnback10.addEventListener("click", () => {
+		        if (this.btnplay10) this.btnplay10.alpha = 0.5;
+		        if (this.btnstop10) this.btnstop10.alpha = 1;
+		        // 确保 this 是 MovieClip 或 Sprite 的实例
+		        if (this instanceof createjs.MovieClip || this instanceof createjs.Sprite) {
+		            this.gotoAndPlay(270, "play"); // CreateJS 的帧索引从 0 开始，因此使用 270 表示第 271 帧
+		        }
+		        if (this.tf) this.tf.gotoAndPlay(0); // CreateJS 的帧索引从 0 开始，因此使用 0 表示第 1 帧
+		    });
+		}
+	}
+	this.frame_330 = function() {
+		this.stop();
+		// 设置按钮的初始透明度
+		if (this.btnplay) this.btnplay11.alpha = 0.5;
+		if (this.btnback11) this.btnback11.alpha = 0.5;
+		if (this.btnstop11) this.btnstop11.alpha = 0.5;
+		if (this.btnnext11) this.btnnext11.alpha = 0.5;
+	}
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(29).call(this.frame_30).wait(30).call(this.frame_60).wait(30).call(this.frame_90).wait(30).call(this.frame_120).wait(30).call(this.frame_150).wait(31).call(this.frame_181).wait(29).call(this.frame_210).wait(30).call(this.frame_240).wait(30).call(this.frame_270).wait(30).call(this.frame_300).wait(30).call(this.frame_330).wait(1));
+	// 变形
+	this.instance_3 = new lib.二十六("synched",0);
+	this.instance_3.setTransform(358,105,1,1,0,0,0,25,15);
+	this.ts = new lib._26();
+	this.ts.name = "ts";
+	this.ts.setTransform(358,105,1,1,0,0,0,25,15);
+	this.tts = new lib._36();
+	this.tts.name = "tts";
+	this.tts.setTransform(358,105,1,1,0,0,0,25,15);
+	this.fo = new lib._41();
+	this.fo.name = "fo";
+	this.fo.setTransform(358,105,1,1,0,0,0,25,15);
+	this.te = new lib._38();
+	this.te.name = "te";
+	this.te.setTransform(358,106,1,1,0,0,0,25,16);
+	this.ff = new lib._44();
+	this.ff.name = "ff";
+	this.ff.setTransform(358,105,1,1,0,0,0,25,15);
+	this.of = new lib._15();
+	this.of.name = "of";
+	this.of.setTransform(358,105,1,1,0,0,0,25,15);
+	this.se = new lib._68();
+	this.se.name = "se";
+	this.se.setTransform(358,105,1,1,0,0,0,25,15);
+	this.ott = new lib._12();
+	this.ott.name = "ott";
+	this.ott.setTransform(358,105,1,1,0,0,0,25,15);
+	this.zs = new lib._06();
+	this.zs.name = "zs";
+	this.zs.setTransform(358,105,1,1,0,0,0,25,15);
+	this.fo_1 = new lib._51();
+	this.fo_1.name = "fo_1";
+	this.fo_1.setTransform(358,105,1,1,0,0,0,25,15);
+	this.tf = new lib._25();
+	this.tf.name = "tf";
+	this.tf.setTransform(358,105,1,1,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_3}]}).to({state:[{t:this.ts}]},1).to({state:[{t:this.tts}]},29).to({state:[{t:this.fo}]},30).to({state:[{t:this.te}]},30).to({state:[{t:this.ff}]},30).to({state:[{t:this.of}]},30).to({state:[{t:this.se}]},31).to({state:[{t:this.ott}]},29).to({state:[{t:this.zs}]},30).to({state:[{t:this.fo_1}]},30).to({state:[{t:this.tf}]},30).to({state:[]},30).wait(1));
+	// 图层_4
+	this.instance_4 = new lib.二十六("synched",0);
+	this.instance_4.setTransform(115.65,66.2,0.8,0.8333,0,0,0,25,15);
+	this.instance_5 = new lib.指针("synched",0);
+	this.instance_5.setTransform(71.85,65.95,1,1,0,0,0,6.8,4.5);
+	this.instance_6 = new lib.三十六("synched",0);
+	this.instance_6.setTransform(115.5,294,0.8,0.8333,0,0,0,25,15);
+	this.instance_7 = new lib.指针("synched",0);
+	this.instance_7.setTransform(72,294.45,1,1,0,0,0,6.8,4.5);
+	this.instance_8 = new lib.四十一("synched",0);
+	this.instance_8.setTransform(115.55,113.5,0.8,0.8333,0,0,0,25,15);
+	this.instance_9 = new lib.指针("synched",0);
+	this.instance_9.setTransform(71.85,114.3,1,1,0,0,0,6.8,4.5);
+	this.instance_10 = new lib.三十八("synched",0);
+	this.instance_10.setTransform(115.35,343.3,0.8,0.8333,0,0,0,25,15);
+	this.instance_11 = new lib.指针("synched",0);
+	this.instance_11.setTransform(71.9,342.95,1,1,0,0,0,6.8,4.5);
+	this.instance_12 = new lib.指针("synched",0);
+	this.instance_12.setTransform(71.9,181.25,1,1,0,0,0,6.8,4.5);
+	this.instance_13 = new lib.四十四("synched",0);
+	this.instance_13.setTransform(115.5,181.05,0.8,0.8333,0,0,0,25,15);
+	this.instance_14 = new lib.指针("synched",0);
+	this.instance_14.setTransform(71.9,181.25,1,1,0,0,0,6.8,4.5);
+	this.instance_15 = new lib.十五("synched",0);
+	this.instance_15.setTransform(163.3,113.5,0.8,0.8333,0,0,0,25,15);
+	this.instance_16 = new lib.四十一副本("synched",0);
+	this.instance_16.setTransform(115.35,113.5,0.8,0.8333,0,0,0,25,15);
+	this.instance_17 = new lib.指针("synched",0);
+	this.instance_17.setTransform(70.9,137.55,1,1,0,0,0,6.8,4.5);
+	this.instance_18 = new lib.六十八("synched",0);
+	this.instance_18.setTransform(115.9,137.65,0.8,0.8333,0,0,0,25,15);
+	this.instance_19 = new lib.指针("synched",0);
+	this.instance_19.setTransform(70.9,137.55,1,1,0,0,0,6.8,4.5);
+	this.instance_20 = new lib.十二("synched",0);
+	this.instance_20.setTransform(164.1,344.3,0.8,0.8333,0,0,0,25,15);
+	this.instance_21 = new lib.三十八副本("synched",0);
+	this.instance_21.setTransform(115.05,344.3,0.8,0.8333,0,0,0,25,15);
+	this.instance_22 = new lib.指针("synched",0);
+	this.instance_22.setTransform(70.9,205.35,1,1,0,0,0,6.8,4.5);
+	this.instance_23 = new lib.六("synched",0);
+	this.instance_23.setTransform(115.35,204.05,0.8,0.8333,0,0,0,25,15);
+	this.instance_24 = new lib.指针("synched",0);
+	this.instance_24.setTransform(70.9,205.35,1,1,0,0,0,6.8,4.5);
+	this.instance_25 = new lib.五十一("synched",0);
+	this.instance_25.setTransform(213,342.95,0.8,0.8333,0,0,0,25,15);
+	this.instance_26 = new lib.十二副本("synched",0);
+	this.instance_26.setTransform(163.3,344.3,0.8,0.8333,0,0,0,25,15);
+	this.instance_27 = new lib.二十五("synched",0);
+	this.instance_27.setTransform(265.3,343.5,0.8,0.8333,0,0,0,25,15);
+	this.instance_28 = new lib.指针("synched",0);
+	this.instance_28.setTransform(70.9,205.35,1,1,0,0,0,6.8,4.5);
+	this.instance_29 = new lib.五十一副本("synched",0);
+	this.instance_29.setTransform(214.3,344.3,0.8,0.8333,0,0,0,25,15);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_5,p:{regX:6.8,x:71.85,y:65.95}},{t:this.instance_4}]},30).to({state:[{t:this.instance_7,p:{x:72,y:294.45,regX:6.8}},{t:this.instance_6},{t:this.instance_5,p:{regX:6.8,x:71.85,y:65.95}},{t:this.instance_4}]},30).to({state:[{t:this.instance_9,p:{x:71.85,y:114.3,regX:6.8}},{t:this.instance_8},{t:this.instance_7,p:{x:72,y:294.45,regX:6.8}},{t:this.instance_6},{t:this.instance_5,p:{regX:6.8,x:71.85,y:65.95}},{t:this.instance_4}]},30).to({state:[{t:this.instance_11,p:{x:71.9,y:342.95,regX:6.8}},{t:this.instance_10},{t:this.instance_9,p:{x:71.85,y:114.3,regX:6.8}},{t:this.instance_8},{t:this.instance_7,p:{x:72,y:294.45,regX:6.8}},{t:this.instance_6},{t:this.instance_5,p:{regX:6.8,x:71.85,y:65.95}},{t:this.instance_4}]},30).to({state:[{t:this.instance_13},{t:this.instance_12,p:{y:181.25,x:71.9}},{t:this.instance_11,p:{x:71.9,y:342.95,regX:6.8}},{t:this.instance_10},{t:this.instance_9,p:{x:71.85,y:114.3,regX:6.8}},{t:this.instance_8},{t:this.instance_7,p:{x:72,y:294.45,regX:6.8}},{t:this.instance_6},{t:this.instance_5,p:{regX:6.8,x:71.85,y:65.95}},{t:this.instance_4}]},30).to({state:[{t:this.instance_16},{t:this.instance_15},{t:this.instance_13},{t:this.instance_14,p:{y:181.25,x:71.9}},{t:this.instance_12,p:{y:342.95,x:71.9}},{t:this.instance_10},{t:this.instance_11,p:{x:71.85,y:114.3,regX:6.8}},{t:this.instance_9,p:{x:72,y:294.45,regX:6.8}},{t:this.instance_6},{t:this.instance_7,p:{x:71.85,y:65.95,regX:6.8}},{t:this.instance_4},{t:this.instance_5,p:{regX:19.2,x:134.25,y:114}}]},31).to({state:[{t:this.instance_18},{t:this.instance_17,p:{x:70.9,y:137.55}},{t:this.instance_13},{t:this.instance_14,p:{y:181.25,x:71.9}},{t:this.instance_12,p:{y:342.95,x:71.9}},{t:this.instance_10},{t:this.instance_11,p:{x:71.85,y:114.3,regX:6.8}},{t:this.instance_9,p:{x:72,y:294.45,regX:6.8}},{t:this.instance_6},{t:this.instance_7,p:{x:71.85,y:65.95,regX:6.8}},{t:this.instance_4},{t:this.instance_16},{t:this.instance_15},{t:this.instance_5,p:{regX:19.2,x:134.25,y:114}}]},29).to({state:[{t:this.instance_21},{t:this.instance_20},{t:this.instance_18},{t:this.instance_19,p:{x:70.9,y:137.55}},{t:this.instance_13},{t:this.instance_17,p:{x:71.9,y:181.25}},{t:this.instance_14,p:{y:342.95,x:71.9}},{t:this.instance_12,p:{y:114.3,x:71.85}},{t:this.instance_11,p:{x:72,y:294.45,regX:6.8}},{t:this.instance_6},{t:this.instance_9,p:{x:71.85,y:65.95,regX:6.8}},{t:this.instance_4},{t:this.instance_7,p:{x:133.25,y:344,regX:19.2}},{t:this.instance_16},{t:this.instance_15},{t:this.instance_5,p:{regX:19.2,x:134.25,y:114}}]},30).to({state:[{t:this.instance_23},{t:this.instance_22,p:{y:205.35,x:70.9}},{t:this.instance_18},{t:this.instance_19,p:{x:70.9,y:137.55}},{t:this.instance_13},{t:this.instance_17,p:{x:71.9,y:181.25}},{t:this.instance_14,p:{y:342.95,x:71.9}},{t:this.instance_12,p:{y:114.3,x:71.85}},{t:this.instance_11,p:{x:72,y:294.45,regX:6.8}},{t:this.instance_6},{t:this.instance_9,p:{x:71.85,y:65.95,regX:6.8}},{t:this.instance_4},{t:this.instance_16},{t:this.instance_15},{t:this.instance_7,p:{x:134.25,y:114,regX:19.2}},{t:this.instance_21},{t:this.instance_20},{t:this.instance_5,p:{regX:19.2,x:133.25,y:344}}]},30).to({state:[{t:this.instance_26},{t:this.instance_25},{t:this.instance_23},{t:this.instance_24,p:{y:205.35}},{t:this.instance_18},{t:this.instance_22,p:{y:137.55,x:70.9}},{t:this.instance_13},{t:this.instance_19,p:{x:71.9,y:181.25}},{t:this.instance_17,p:{x:71.9,y:342.95}},{t:this.instance_14,p:{y:114.3,x:71.85}},{t:this.instance_12,p:{y:294.45,x:72}},{t:this.instance_6},{t:this.instance_11,p:{x:71.85,y:65.95,regX:6.8}},{t:this.instance_4},{t:this.instance_9,p:{x:182.25,y:344,regX:19.2}},{t:this.instance_16},{t:this.instance_15},{t:this.instance_7,p:{x:134.25,y:114,regX:19.2}},{t:this.instance_21},{t:this.instance_5,p:{regX:19.2,x:133.25,y:344}}]},30).to({state:[{t:this.instance_29},{t:this.instance_23},{t:this.instance_28},{t:this.instance_18},{t:this.instance_24,p:{y:137.55}},{t:this.instance_13},{t:this.instance_22,p:{y:181.25,x:71.9}},{t:this.instance_19,p:{x:71.9,y:342.95}},{t:this.instance_17,p:{x:71.85,y:114.3}},{t:this.instance_14,p:{y:294.45,x:72}},{t:this.instance_6},{t:this.instance_12,p:{y:65.95,x:71.85}},{t:this.instance_4},{t:this.instance_27},{t:this.instance_11,p:{x:233.25,y:344.3,regX:19.2}},{t:this.instance_16},{t:this.instance_15},{t:this.instance_9,p:{x:134.25,y:114,regX:19.2}},{t:this.instance_26},{t:this.instance_7,p:{x:182.25,y:344,regX:19.2}},{t:this.instance_21},{t:this.instance_5,p:{regX:19.2,x:133.25,y:344}}]},30).wait(1));
+	// 散列地址
+	this.instance_30 = new lib.CachedBmp_19599();
+	this.instance_30.setTransform(334.9,120,0.5,0.5);
+	this.instance_31 = new lib.CachedBmp_19600();
+	this.instance_31.setTransform(331.9,120,0.5,0.5);
+	this.instance_32 = new lib.CachedBmp_19601();
+	this.instance_32.setTransform(331.9,120,0.5,0.5);
+	this.instance_33 = new lib.CachedBmp_19602();
+	this.instance_33.setTransform(331.9,120,0.5,0.5);
+	this.instance_34 = new lib.CachedBmp_19603();
+	this.instance_34.setTransform(331.9,120,0.5,0.5);
+	this.instance_35 = new lib.CachedBmp_19604();
+	this.instance_35.setTransform(331.9,120,0.5,0.5);
+	this.instance_36 = new lib.CachedBmp_19605();
+	this.instance_36.setTransform(331.9,120,0.5,0.5);
+	this.instance_37 = new lib.CachedBmp_19606();
+	this.instance_37.setTransform(331.9,120,0.5,0.5);
+	this.instance_38 = new lib.CachedBmp_19607();
+	this.instance_38.setTransform(331.9,120,0.5,0.5);
+	this.instance_39 = new lib.CachedBmp_19608();
+	this.instance_39.setTransform(331.9,120,0.5,0.5);
+	this.instance_40 = new lib.CachedBmp_19609();
+	this.instance_40.setTransform(331.9,120,0.5,0.5);
+	this.instance_41 = new lib.CachedBmp_19610();
+	this.instance_41.setTransform(331.9,120,0.5,0.5);
+	this.instance_42 = new lib.CachedBmp_19611();
+	this.instance_42.setTransform(331.9,120,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_30}]}).to({state:[{t:this.instance_31}]},1).to({state:[{t:this.instance_32}]},29).to({state:[{t:this.instance_33}]},30).to({state:[{t:this.instance_34}]},30).to({state:[{t:this.instance_35}]},30).to({state:[{t:this.instance_36}]},30).to({state:[{t:this.instance_37}]},31).to({state:[{t:this.instance_38}]},29).to({state:[{t:this.instance_39}]},30).to({state:[{t:this.instance_40}]},30).to({state:[{t:this.instance_41}]},30).to({state:[{t:this.instance_42}]},30).wait(1));
+	// 按钮
+	this.dstop = new lib.stop();
+	this.dstop.name = "dstop";
+	this.dstop.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.dstop, 0, 1, 2);
+	this.dnext = new lib.next();
+	this.dnext.name = "dnext";
+	this.dnext.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.dnext, 0, 1, 2);
+	this.dplay = new lib.play();
+	this.dplay.name = "dplay";
+	this.dplay.setTransform(78,356.4,0.7576,0.7353);
+	new cjs.ButtonHelper(this.dplay, 0, 1, 2);
+	this.dback = new lib.pre();
+	this.dback.name = "dback";
+	this.dback.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.dback, 0, 1, 2);
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f().s("#CCCCCC").ss(1,1,1).p("AQQgGIAAANAwPAHIAAgD");
+	this.shape.setTransform(416.925,190.325);
+	this.btnstop = new lib.stop();
+	this.btnstop.name = "btnstop";
+	this.btnstop.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop, 0, 1, 2);
+	this.btnnext = new lib.next();
+	this.btnnext.name = "btnnext";
+	this.btnnext.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext, 0, 1, 2);
+	this.btnplay = new lib.play();
+	this.btnplay.name = "btnplay";
+	this.btnplay.setTransform(78,356.4,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnplay, 0, 1, 2);
+	this.btnback = new lib.pre();
+	this.btnback.name = "btnback";
+	this.btnback.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback, 0, 1, 2);
+	this.btnstop1 = new lib.stop();
+	this.btnstop1.name = "btnstop1";
+	this.btnstop1.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop1, 0, 1, 2);
+	this.btnnext1 = new lib.next();
+	this.btnnext1.name = "btnnext1";
+	this.btnnext1.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext1, 0, 1, 2);
+	this.btnback1 = new lib.pre();
+	this.btnback1.name = "btnback1";
+	this.btnback1.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback1, 0, 1, 2);
+	this.btnstop2 = new lib.stop();
+	this.btnstop2.name = "btnstop2";
+	this.btnstop2.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop2, 0, 1, 2);
+	this.btnnext2 = new lib.next();
+	this.btnnext2.name = "btnnext2";
+	this.btnnext2.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext2, 0, 1, 2);
+	this.btnback2 = new lib.pre();
+	this.btnback2.name = "btnback2";
+	this.btnback2.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback2, 0, 1, 2);
+	this.btnstop3 = new lib.stop();
+	this.btnstop3.name = "btnstop3";
+	this.btnstop3.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop3, 0, 1, 2);
+	this.btnnext3 = new lib.next();
+	this.btnnext3.name = "btnnext3";
+	this.btnnext3.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext3, 0, 1, 2);
+	this.btnback3 = new lib.pre();
+	this.btnback3.name = "btnback3";
+	this.btnback3.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback3, 0, 1, 2);
+	this.btnstop4 = new lib.stop();
+	this.btnstop4.name = "btnstop4";
+	this.btnstop4.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop4, 0, 1, 2);
+	this.btnnext4 = new lib.next();
+	this.btnnext4.name = "btnnext4";
+	this.btnnext4.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext4, 0, 1, 2);
+	this.btnback4 = new lib.pre();
+	this.btnback4.name = "btnback4";
+	this.btnback4.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback4, 0, 1, 2);
+	this.btnstop5 = new lib.stop();
+	this.btnstop5.name = "btnstop5";
+	this.btnstop5.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop5, 0, 1, 2);
+	this.btnnext5 = new lib.next();
+	this.btnnext5.name = "btnnext5";
+	this.btnnext5.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext5, 0, 1, 2);
+	this.btnback5 = new lib.pre();
+	this.btnback5.name = "btnback5";
+	this.btnback5.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback5, 0, 1, 2);
+	this.btnstop6 = new lib.stop();
+	this.btnstop6.name = "btnstop6";
+	this.btnstop6.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop6, 0, 1, 2);
+	this.btnnext6 = new lib.next();
+	this.btnnext6.name = "btnnext6";
+	this.btnnext6.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext6, 0, 1, 2);
+	this.btnback6 = new lib.pre();
+	this.btnback6.name = "btnback6";
+	this.btnback6.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback6, 0, 1, 2);
+	this.btnstop7 = new lib.stop();
+	this.btnstop7.name = "btnstop7";
+	this.btnstop7.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop7, 0, 1, 2);
+	this.btnnext7 = new lib.next();
+	this.btnnext7.name = "btnnext7";
+	this.btnnext7.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext7, 0, 1, 2);
+	this.btnback7 = new lib.pre();
+	this.btnback7.name = "btnback7";
+	this.btnback7.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback7, 0, 1, 2);
+	this.shape_1 = new cjs.Shape();
+	this.shape_1.graphics.f().s("#CCCCCC").ss(1,1,1).p("AQbnKIAAAOAQEG9IAAANAwDm8IAAgDAwaHKIAAgC");
+	this.shape_1.setTransform(418.075,145.15);
+	this.btnstop8 = new lib.stop();
+	this.btnstop8.name = "btnstop8";
+	this.btnstop8.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop8, 0, 1, 2);
+	this.btnnext8 = new lib.next();
+	this.btnnext8.name = "btnnext8";
+	this.btnnext8.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext8, 0, 1, 2);
+	this.btnback8 = new lib.pre();
+	this.btnback8.name = "btnback8";
+	this.btnback8.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback8, 0, 1, 2);
+	this.btnstop9 = new lib.stop();
+	this.btnstop9.name = "btnstop9";
+	this.btnstop9.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop9, 0, 1, 2);
+	this.btnnext9 = new lib.next();
+	this.btnnext9.name = "btnnext9";
+	this.btnnext9.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext9, 0, 1, 2);
+	this.btnback9 = new lib.pre();
+	this.btnback9.name = "btnback9";
+	this.btnback9.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback9, 0, 1, 2);
+	this.btnstop10 = new lib.stop();
+	this.btnstop10.name = "btnstop10";
+	this.btnstop10.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop10, 0, 1, 2);
+	this.btnnext10 = new lib.next();
+	this.btnnext10.name = "btnnext10";
+	this.btnnext10.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext10, 0, 1, 2);
+	this.btnback10 = new lib.pre();
+	this.btnback10.name = "btnback10";
+	this.btnback10.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback10, 0, 1, 2);
+	this.btnstop11 = new lib.stop();
+	this.btnstop11.name = "btnstop11";
+	this.btnstop11.setTransform(129.9,356.4,0.7567,0.7371);
+	new cjs.ButtonHelper(this.btnstop11, 0, 1, 2);
+	this.btnnext11 = new lib.next();
+	this.btnnext11.name = "btnnext11";
+	this.btnnext11.setTransform(182,356.45,0.7576,0.7353);
+	new cjs.ButtonHelper(this.btnnext11, 0, 1, 2);
+	this.btnback11 = new lib.pre();
+	this.btnback11.name = "btnback11";
+	this.btnback11.setTransform(44.85,365.2,0.7576,0.7353,0,0,0,24.9,12.5);
+	new cjs.ButtonHelper(this.btnback11, 0, 1, 2);
+	this.shape_2 = new cjs.Shape();
+	this.shape_2.graphics.f().s("#CCCCCC").ss(1,1,1).p("AAAABIAAgB");
+	this.shape_2.setTransform(312.95,190.875);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape},{t:this.dback},{t:this.dplay},{t:this.dnext},{t:this.dstop}]}).to({state:[{t:this.shape},{t:this.btnback},{t:this.btnplay},{t:this.btnnext},{t:this.btnstop}]},1).to({state:[{t:this.shape},{t:this.btnback1},{t:this.btnplay},{t:this.btnnext1},{t:this.btnstop1}]},29).to({state:[{t:this.shape},{t:this.btnback2},{t:this.btnplay},{t:this.btnnext2},{t:this.btnstop2}]},30).to({state:[{t:this.shape},{t:this.btnback3},{t:this.btnplay},{t:this.btnnext3},{t:this.btnstop3}]},30).to({state:[{t:this.shape},{t:this.btnback4},{t:this.btnplay},{t:this.btnnext4},{t:this.btnstop4}]},30).to({state:[{t:this.shape},{t:this.btnback5},{t:this.btnplay},{t:this.btnnext5},{t:this.btnstop5}]},30).to({state:[{t:this.shape},{t:this.btnback6},{t:this.btnplay},{t:this.btnnext6},{t:this.btnstop6}]},31).to({state:[{t:this.shape_1},{t:this.btnback7},{t:this.btnplay},{t:this.btnnext7},{t:this.btnstop7}]},29).to({state:[{t:this.shape},{t:this.btnback8},{t:this.btnplay},{t:this.btnnext8},{t:this.btnstop8}]},30).to({state:[{t:this.shape},{t:this.btnback9},{t:this.btnplay},{t:this.btnnext9},{t:this.btnstop9}]},30).to({state:[{t:this.shape},{t:this.btnback10},{t:this.btnplay},{t:this.btnnext10},{t:this.btnstop10}]},30).to({state:[{t:this.shape_2},{t:this.btnback11},{t:this.btnplay},{t:this.btnnext11},{t:this.btnstop11}]},30).wait(1));
+	// 图层_6
+	this.instance_43 = new lib.空("synched",0);
+	this.instance_43.setTransform(70.35,343.95,1,1,0,0,0,0,5.2);
+	this.instance_44 = new lib.空("synched",0);
+	this.instance_44.setTransform(70.35,318.95,1,1,0,0,0,0,5.2);
+	this.instance_45 = new lib.空("synched",0);
+	this.instance_45.setTransform(71.35,294.95,1,1,0,0,0,0,5.2);
+	this.instance_46 = new lib.空("synched",0);
+	this.instance_46.setTransform(70.35,271.95,1,1,0,0,0,0,5.2);
+	this.instance_47 = new lib.空("synched",0);
+	this.instance_47.setTransform(70.35,249.95,1,1,0,0,0,0,5.2);
+	this.instance_48 = new lib.空("synched",0);
+	this.instance_48.setTransform(70.35,225.95,1,1,0,0,0,0,5.2);
+	this.instance_49 = new lib.空("synched",0);
+	this.instance_49.setTransform(70.35,203.95,1,1,0,0,0,0,5.2);
+	this.instance_50 = new lib.空("synched",0);
+	this.instance_50.setTransform(71.35,180.95,1,1,0,0,0,0,5.2);
+	this.instance_51 = new lib.空("synched",0);
+	this.instance_51.setTransform(70.35,156.95,1,1,0,0,0,0,5.2);
+	this.instance_52 = new lib.空("synched",0);
+	this.instance_52.setTransform(70.35,135.95,1,1,0,0,0,0,5.2);
+	this.instance_53 = new lib.空("synched",0);
+	this.instance_53.setTransform(70.35,114.95,1,1,0,0,0,0,5.2);
+	this.instance_54 = new lib.空("synched",0);
+	this.instance_54.setTransform(70.35,88.95,1,1,0,0,0,0,5.2);
+	this.instance_55 = new lib.空("synched",0);
+	this.instance_55.setTransform(70.3,65.9,1,1,0,0,0,0,5.2);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_55},{t:this.instance_54},{t:this.instance_53,p:{y:114.95}},{t:this.instance_52,p:{y:135.95}},{t:this.instance_51,p:{y:156.95}},{t:this.instance_50,p:{x:71.35,y:180.95}},{t:this.instance_49,p:{x:70.35,y:203.95}},{t:this.instance_48,p:{y:225.95}},{t:this.instance_47,p:{y:249.95}},{t:this.instance_46,p:{y:271.95}},{t:this.instance_45,p:{x:71.35,y:294.95}},{t:this.instance_44,p:{y:318.95}},{t:this.instance_43,p:{y:343.95,x:70.35}}]}).to({state:[{t:this.instance_55},{t:this.instance_54},{t:this.instance_53,p:{y:114.95}},{t:this.instance_52,p:{y:135.95}},{t:this.instance_51,p:{y:156.95}},{t:this.instance_50,p:{x:71.35,y:180.95}},{t:this.instance_49,p:{x:70.35,y:203.95}},{t:this.instance_48,p:{y:225.95}},{t:this.instance_47,p:{y:249.95}},{t:this.instance_46,p:{y:271.95}},{t:this.instance_45,p:{x:71.35,y:294.95}},{t:this.instance_44,p:{y:318.95}},{t:this.instance_43,p:{y:343.95,x:70.35}}]},1).to({state:[{t:this.instance_54},{t:this.instance_53,p:{y:114.95}},{t:this.instance_52,p:{y:135.95}},{t:this.instance_51,p:{y:156.95}},{t:this.instance_50,p:{x:71.35,y:180.95}},{t:this.instance_49,p:{x:70.35,y:203.95}},{t:this.instance_48,p:{y:225.95}},{t:this.instance_47,p:{y:249.95}},{t:this.instance_46,p:{y:271.95}},{t:this.instance_45,p:{x:70.35,y:318.95}},{t:this.instance_44,p:{y:343.95}},{t:this.instance_43,p:{y:292.95,x:70.35}}]},29).to({state:[{t:this.instance_53,p:{y:88.95}},{t:this.instance_52,p:{y:114.95}},{t:this.instance_51,p:{y:135.95}},{t:this.instance_50,p:{x:70.35,y:156.95}},{t:this.instance_49,p:{x:71.35,y:180.95}},{t:this.instance_48,p:{y:203.95}},{t:this.instance_47,p:{y:225.95}},{t:this.instance_46,p:{y:249.95}},{t:this.instance_45,p:{x:70.35,y:271.95}},{t:this.instance_44,p:{y:318.95}},{t:this.instance_43,p:{y:343.95,x:70.35}}]},30).to({state:[{t:this.instance_52,p:{y:88.95}},{t:this.instance_51,p:{y:135.95}},{t:this.instance_50,p:{x:70.35,y:156.95}},{t:this.instance_49,p:{x:71.35,y:180.95}},{t:this.instance_48,p:{y:203.95}},{t:this.instance_47,p:{y:225.95}},{t:this.instance_46,p:{y:249.95}},{t:this.instance_45,p:{x:70.35,y:271.95}},{t:this.instance_44,p:{y:318.95}},{t:this.instance_43,p:{y:343.95,x:70.35}}]},30).to({state:[{t:this.instance_51,p:{y:88.95}},{t:this.instance_50,p:{x:70.35,y:135.95}},{t:this.instance_49,p:{x:70.35,y:156.95}},{t:this.instance_48,p:{y:203.95}},{t:this.instance_47,p:{y:225.95}},{t:this.instance_46,p:{y:249.95}},{t:this.instance_45,p:{x:70.35,y:271.95}},{t:this.instance_44,p:{y:318.95}},{t:this.instance_43,p:{y:179.95,x:70.35}}]},30).to({state:[{t:this.instance_50,p:{x:70.35,y:88.95}},{t:this.instance_49,p:{x:70.35,y:135.95}},{t:this.instance_48,p:{y:156.95}},{t:this.instance_47,p:{y:203.95}},{t:this.instance_46,p:{y:225.95}},{t:this.instance_45,p:{x:70.35,y:249.95}},{t:this.instance_44,p:{y:271.95}},{t:this.instance_43,p:{y:318.95,x:70.35}}]},30).to({state:[{t:this.instance_50,p:{x:70.35,y:88.95}},{t:this.instance_49,p:{x:70.35,y:156.95}},{t:this.instance_48,p:{y:203.95}},{t:this.instance_47,p:{y:225.95}},{t:this.instance_46,p:{y:249.95}},{t:this.instance_45,p:{x:70.35,y:271.95}},{t:this.instance_44,p:{y:318.95}},{t:this.instance_43,p:{y:135.95,x:71.35}}]},31).to({state:[{t:this.instance_49,p:{x:70.35,y:88.95}},{t:this.instance_48,p:{y:156.95}},{t:this.instance_47,p:{y:203.95}},{t:this.instance_46,p:{y:225.95}},{t:this.instance_45,p:{x:70.35,y:249.95}},{t:this.instance_44,p:{y:271.95}},{t:this.instance_43,p:{y:318.95,x:70.35}}]},29).to({state:[{t:this.instance_49,p:{x:70.35,y:88.95}},{t:this.instance_48,p:{y:156.95}},{t:this.instance_47,p:{y:225.95}},{t:this.instance_46,p:{y:249.95}},{t:this.instance_45,p:{x:70.35,y:271.95}},{t:this.instance_44,p:{y:318.95}},{t:this.instance_43,p:{y:203.95,x:70.35}}]},30).to({state:[{t:this.instance_48,p:{y:88.95}},{t:this.instance_47,p:{y:156.95}},{t:this.instance_46,p:{y:225.95}},{t:this.instance_45,p:{x:70.35,y:249.95}},{t:this.instance_44,p:{y:271.95}},{t:this.instance_43,p:{y:318.95,x:70.35}}]},30).to({state:[{t:this.instance_48,p:{y:88.95}},{t:this.instance_47,p:{y:156.95}},{t:this.instance_46,p:{y:225.95}},{t:this.instance_45,p:{x:70.35,y:249.95}},{t:this.instance_44,p:{y:271.95}},{t:this.instance_43,p:{y:318.95,x:70.35}}]},30).wait(31));
+	// background
+	this.instance_56 = new lib.校徽();
+	this.instance_56.setTransform(436,363,0.6011,0.7059);
+	this.replay = new lib.replay();
+	this.replay.name = "replay";
+	this.replay.setTransform(233.3,355.9,0.7571,0.7371);
+	new cjs.ButtonHelper(this.replay, 0, 1, 2);
+	this.instance_57 = new lib.CachedBmp_19616();
+	this.instance_57.setTransform(338.1,169.45,0.5,0.5);
+	this.instance_58 = new lib.CachedBmp_19615();
+	this.instance_58.setTransform(40.45,54.45,0.5,0.5);
+	this.instance_59 = new lib.CachedBmp_19614();
+	this.instance_59.setTransform(19.5,34.2,0.5,0.5);
+	this.instance_60 = new lib.CachedBmp_19613();
+	this.instance_60.setTransform(153.95,3.05,0.5,0.5);
+	this.instance_61 = new lib.CachedBmp_19617();
+	this.instance_61.setTransform(58.9,53.95,0.5,0.5);
+	this.instance_62 = new lib.CachedBmp_19621();
+	this.instance_62.setTransform(338.1,169.45,0.5,0.5);
+	this.instance_63 = new lib.CachedBmp_19620();
+	this.instance_63.setTransform(40.45,54.45,0.5,0.5);
+	this.instance_64 = new lib.CachedBmp_19619();
+	this.instance_64.setTransform(19.5,34.2,0.5,0.5);
+	this.instance_65 = new lib.CachedBmp_19618();
+	this.instance_65.setTransform(153.95,3.05,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_61},{t:this.instance_60},{t:this.instance_59},{t:this.instance_58},{t:this.instance_57},{t:this.replay},{t:this.instance_56}]}).to({state:[{t:this.instance_61},{t:this.instance_65},{t:this.instance_64},{t:this.instance_63},{t:this.instance_62},{t:this.replay},{t:this.instance_56}]},330).wait(1));
+	this._renderFirstFrame();
+}).prototype = p = new lib.AnMovieClip();
+p.nominalBounds = new cjs.Rectangle(294.5,203.1,260.5,195.9);
+// library properties:
+lib.properties = {
+	id: '95B3C55889DFE64893587778F120A7CF',
+	width: 550,
+	height: 400,
+	fps: 12,
+	color: "#FFFFFF",
+	opacity: 1.00,
+	manifest: [
+		{src:"images/散列表构造_拉链法_atlas_1.png?1748922729932", id:"散列表构造_拉链法_atlas_1"}
+	],
+	preloads: []
+};
+// bootstrap callback support:
+(lib.Stage = function(canvas) {
+	createjs.Stage.call(this, canvas);
+}).prototype = p = new createjs.Stage();
+p.setAutoPlay = function(autoPlay) {
+	this.tickEnabled = autoPlay;
+}
+p.play = function() { this.tickEnabled = true; this.getChildAt(0).gotoAndPlay(this.getTimelinePosition()) }
+p.stop = function(ms) { if(ms) this.seek(ms); this.tickEnabled = false; }
+p.seek = function(ms) { this.tickEnabled = true; this.getChildAt(0).gotoAndStop(lib.properties.fps * ms / 1000); }
+p.getDuration = function() { return this.getChildAt(0).totalFrames / lib.properties.fps * 1000; }
+p.getTimelinePosition = function() { return this.getChildAt(0).currentFrame / lib.properties.fps * 1000; }
+an.bootcompsLoaded = an.bootcompsLoaded || [];
+if(!an.bootstrapListeners) {
+	an.bootstrapListeners=[];
+}
+an.bootstrapCallback=function(fnCallback) {
+	an.bootstrapListeners.push(fnCallback);
+	if(an.bootcompsLoaded.length > 0) {
+		for(var i=0; i<an.bootcompsLoaded.length; ++i) {
+			fnCallback(an.bootcompsLoaded[i]);
+		}
+	}
+};
+an.compositions = an.compositions || {};
+an.compositions['95B3C55889DFE64893587778F120A7CF'] = {
+	getStage: function() { return exportRoot.stage; },
+	getLibrary: function() { return lib; },
+	getSpriteSheet: function() { return ss; },
+	getImages: function() { return img; }
+};
+an.compositionLoaded = function(id) {
+	an.bootcompsLoaded.push(id);
+	for(var j=0; j<an.bootstrapListeners.length; j++) {
+		an.bootstrapListeners[j](id);
+	}
+}
+an.getComposition = function(id) {
+	return an.compositions[id];
+}
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
+	var lastW, lastH, lastS=1;		
+	window.addEventListener('resize', resizeCanvas);		
+	resizeCanvas();		
+	function resizeCanvas() {			
+		var w = lib.properties.width, h = lib.properties.height;			
+		var iw = window.innerWidth, ih=window.innerHeight;			
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
+		if(isResp) {                
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+				sRatio = lastS;                
+			}				
+			else if(!isScale) {					
+				if(iw<w || ih<h)						
+					sRatio = Math.min(xRatio, yRatio);				
+			}				
+			else if(scaleType==1) {					
+				sRatio = Math.min(xRatio, yRatio);				
+			}				
+			else if(scaleType==2) {					
+				sRatio = Math.max(xRatio, yRatio);				
+			}			
+		}
+		domContainers[0].width = w * pRatio * sRatio;			
+		domContainers[0].height = h * pRatio * sRatio;
+		domContainers.forEach(function(container) {				
+			container.style.width = w * sRatio + 'px';				
+			container.style.height = h * sRatio + 'px';			
+		});
+		stage.scaleX = pRatio*sRatio;			
+		stage.scaleY = pRatio*sRatio;
+		lastW = iw; lastH = ih; lastS = sRatio;            
+		stage.tickOnUpdate = false;            
+		stage.update();            
+		stage.tickOnUpdate = true;		
+	}
+}
+an.handleSoundStreamOnTick = function(event) {
+	if(!event.paused){
+		var stageChild = stage.getChildAt(0);
+		if(!stageChild.paused || stageChild.ignorePause){
+			stageChild.syncStreamSounds();
+		}
+	}
+}
+an.handleFilterCache = function(event) {
+	if(!event.paused){
+		var target = event.target;
+		if(target){
+			if(target.filterCacheList){
+				for(var index = 0; index < target.filterCacheList.length ; index++){
+					var cacheInst = target.filterCacheList[index];
+					if((cacheInst.startFrame <= target.currentFrame) && (target.currentFrame <= cacheInst.endFrame)){
+						cacheInst.instance.cache(cacheInst.x, cacheInst.y, cacheInst.w, cacheInst.h);
+					}
+				}
+			}
+		}
+	}
+}
+})(createjs = createjs||{}, AdobeAn = AdobeAn||{});
+var createjs, AdobeAn;
+</script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("95B3C55889DFE64893587778F120A7CF");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.散列表构造拉链法();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+<!-- write your code here -->
+</head>
+<body onload="init();" style="margin:0px;">
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:550px; height:400px">
+		<canvas id="canvas" width="550" height="400" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:550px; height:400px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+</body>
+</html>
